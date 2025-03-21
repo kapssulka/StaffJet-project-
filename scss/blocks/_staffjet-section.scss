@@ -1,0 +1,115 @@
+.staffjet {
+  margin-bottom: 100px;
+  @media (max-width: 1024px) {
+    margin-bottom: 0;
+  }
+
+  &__inner {
+    padding-top: calc(128px + 148px); // шапка + отступ
+    margin-top: -128px;
+
+    background-image: url("./../images/background/about-us/about-us-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // background
+    @media (max-width: 1440px) {
+      background-size: 100% 100%;
+    }
+    @media (max-width: 1024px) {
+      background-image: url("./../images/background/hiro-section/hiro-section-bg-1024.png");
+    }
+    @media (max-width: 840px) {
+      background-image: url("./../images/background/hiro-section/hiro-section-bg-tablet.png");
+    }
+    @media (max-width: 767px) {
+      background-image: url("./../images/background/hiro-section/hiro-section-bg-mobile.png");
+    }
+
+    @media (max-width: 600px) {
+      padding-top: calc(112px + 110px);
+      margin-top: -110px;
+    }
+  }
+
+  &__content {
+    margin-top: 100px;
+
+    @media (max-width: 1024px) {
+      margin-top: 120px;
+
+      padding-bottom: calc(506px + 26px + 80px); //612px
+    }
+    @media (max-width: 840px) {
+      padding-bottom: calc(343px + 26px + 80px); //449px
+    }
+
+    @media (max-width: 600px) {
+      justify-content: start;
+      margin-top: 40px;
+
+      padding-bottom: calc(181px + 18px + 40px); //239px
+    }
+
+    &_inner {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      padding-left: $margin-left-default;
+      @media (max-width: 1440px) {
+        padding-left: $margin-left-1440;
+      }
+      @media (max-width: 1024px) {
+        padding-left: $margin-left-1024;
+      }
+
+      @media (max-width: 840px) {
+        padding-left: $margin-left-840;
+      }
+      @media (max-width: 600px) {
+        padding-left: 0;
+      }
+    }
+
+    &_text-block {
+      margin-bottom: 40px;
+
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 130%;
+      letter-spacing: -1.5%;
+
+      max-width: 350px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 133px;
+
+    @media (max-width: 1024px) {
+      margin-top: -106px;
+    }
+
+    @media (max-width: 600px) {
+      margin-top: -58px;
+    }
+
+    &_item {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 130%;
+      letter-spacing: -1.5%;
+
+      opacity: 50%;
+
+      @media (max-width: 600px) {
+        font-size: 14px;
+      }
+    }
+  }
+}

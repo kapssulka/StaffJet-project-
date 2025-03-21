@@ -1,0 +1,47 @@
+body {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+
+  color: $black;
+
+  background-color: $white-bg;
+
+  a {
+    color: inherit;
+  }
+
+  &._hidden {
+    overflow: hidden;
+  }
+}
+
+._container {
+  max-width: 1440px;
+  padding: 0 40px;
+
+  margin: 0 auto;
+  overflow: hidden;
+
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+.none {
+  display: none !important;
+}
