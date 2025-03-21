@@ -1,3 +1,4 @@
+// TIME ZONE
 const timezoneSpan = document.getElementById("js-timezone");
 
 if (timezoneSpan) {
@@ -28,4 +29,22 @@ function getTime() {
     .replace(/^(\d):/, "0$1");
 
   return time;
+}
+
+// BURGER MENU
+
+const burgerBtn = document.getElementById("js-burger");
+if (burgerBtn) {
+  burgerBtn.addEventListener("click", () => {
+    if (burgerBtn.classList.contains("open")) {
+      burgerBtn.classList.remove("open");
+      burgerBtn.classList.add("close");
+
+      setTimeout(() => {
+        burgerBtn.classList.remove("close");
+      }, 300);
+    } else {
+      burgerBtn.classList.add("open");
+    }
+  });
 }

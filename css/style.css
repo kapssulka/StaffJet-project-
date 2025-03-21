@@ -393,6 +393,10 @@ main {
   transition: 0.1s ease-in-out;
 }
 
+.header {
+  position: relative;
+  z-index: 10;
+}
 .header__inner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -480,29 +484,8 @@ main {
   border-radius: 8px;
   padding: 12px;
   background-color: #fff;
-}
-.burger span {
-  position: relative;
-  display: block;
-  width: 18px;
-  height: 1.5px;
-  background-color: #1e1e1e;
-  border-radius: 1px;
-}
-.burger span::before, .burger span::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  left: 0;
-  height: 100%;
-  background-color: inherit;
-  border-radius: inherit;
-}
-.burger span::before {
-  top: 5px;
-}
-.burger span::after {
-  bottom: 5px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 @media (max-width: 767px) {
   .burger {
@@ -517,7 +500,244 @@ main {
             justify-content: center;
   }
 }
+.burger__inner {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 18px;
+  height: 24px;
+}
+.burger__inner::before, .burger__inner::after,
+.burger__inner span {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.burger__inner::before, .burger__inner::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  height: 1.6px;
+  background-color: #1e1e1e;
+  border-radius: 1px;
+}
+.burger__inner::before {
+  top: 7px;
+}
+.burger__inner::after {
+  bottom: 7px;
+}
+.burger span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background-color: #1e1e1e;
+  border-radius: 1px;
+}
+.burger.open {
+  background-color: #242424;
+}
+.burger.open .burger__inner::before, .burger.open .burger__inner::after,
+.burger.open .burger__inner span {
+  background-color: #fff;
+}
+.burger.open .burger__inner span {
+  -webkit-animation: openBurgerSpan 0.3s ease-in-out forwards;
+          animation: openBurgerSpan 0.3s ease-in-out forwards;
+}
+.burger.open .burger__inner::before {
+  -webkit-animation: openBurgerBefore 0.3s ease-in-out forwards;
+          animation: openBurgerBefore 0.3s ease-in-out forwards;
+}
+.burger.open .burger__inner::after {
+  -webkit-animation: openBurgerAfter 0.3s ease-in-out forwards;
+          animation: openBurgerAfter 0.3s ease-in-out forwards;
+}
+.burger.close .burger__inner::before, .burger.close .burger__inner::after,
+.burger.close .burger__inner span {
+  background-color: #1e1e1e;
+}
+.burger.close .burger__inner span {
+  -webkit-animation: closeBurgerSpan 0.3s ease-in-out backwards;
+          animation: closeBurgerSpan 0.3s ease-in-out backwards;
+}
+.burger.close .burger__inner::before {
+  -webkit-animation: closeBurgerBefore 0.3s ease-in-out backwards;
+          animation: closeBurgerBefore 0.3s ease-in-out backwards;
+}
+.burger.close .burger__inner::after {
+  -webkit-animation: closeBurgerAfter 0.3s ease-in-out backwards;
+          animation: closeBurgerAfter 0.3s ease-in-out backwards;
+}
 
+@-webkit-keyframes openBurgerBefore {
+  0% {
+    top: 7px;
+  }
+  50% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+  100% {
+    -webkit-transform: translateY(4px) rotate(45deg);
+            transform: translateY(4px) rotate(45deg);
+  }
+}
+
+@keyframes openBurgerBefore {
+  0% {
+    top: 7px;
+  }
+  50% {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+  }
+  100% {
+    -webkit-transform: translateY(4px) rotate(45deg);
+            transform: translateY(4px) rotate(45deg);
+  }
+}
+@-webkit-keyframes openBurgerAfter {
+  0% {
+    bottom: 7px;
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-4px) rotate(-45deg);
+            transform: translateY(-4px) rotate(-45deg);
+  }
+}
+@keyframes openBurgerAfter {
+  0% {
+    bottom: 7px;
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-4px) rotate(-45deg);
+            transform: translateY(-4px) rotate(-45deg);
+  }
+}
+@-webkit-keyframes openBurgerSpan {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes openBurgerSpan {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes closeBurgerBefore {
+  0% {
+    -webkit-transform: translateY(4px) rotate(45deg);
+            transform: translateY(4px) rotate(45deg);
+  }
+  50% {
+    -webkit-transform: translateY(4px) rotate(0);
+            transform: translateY(4px) rotate(0);
+  }
+  100% {
+    top: 7px;
+  }
+}
+@keyframes closeBurgerBefore {
+  0% {
+    -webkit-transform: translateY(4px) rotate(45deg);
+            transform: translateY(4px) rotate(45deg);
+  }
+  50% {
+    -webkit-transform: translateY(4px) rotate(0);
+            transform: translateY(4px) rotate(0);
+  }
+  100% {
+    top: 7px;
+  }
+}
+@-webkit-keyframes closeBurgerAfter {
+  0% {
+    -webkit-transform: translateY(-4px) rotate(-45deg);
+            transform: translateY(-4px) rotate(-45deg);
+  }
+  50% {
+    -webkit-transform: translateY(-4px) rotate(0);
+            transform: translateY(-4px) rotate(0);
+  }
+  100% {
+    bottom: 7px;
+  }
+}
+@keyframes closeBurgerAfter {
+  0% {
+    -webkit-transform: translateY(-4px) rotate(-45deg);
+            transform: translateY(-4px) rotate(-45deg);
+  }
+  50% {
+    -webkit-transform: translateY(-4px) rotate(0);
+            transform: translateY(-4px) rotate(0);
+  }
+  100% {
+    bottom: 7px;
+  }
+}
+@-webkit-keyframes closeBurgerSpan {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes closeBurgerSpan {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .staffjet {
   margin-bottom: 100px;
 }

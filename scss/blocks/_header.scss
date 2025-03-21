@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+  z-index: 10;
   &__inner {
     display: flex;
     align-items: start;
@@ -94,15 +96,28 @@
 
   background-color: #fff;
 
-  span {
+  transition: all 0.1s ease-in-out;
+
+  @media (max-width: 767px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__inner {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    display: block;
     width: 18px;
-    height: 1.5px;
-    background-color: $black;
+    height: 24px;
 
-    border-radius: 1px;
+    &::before,
+    &::after,
+    span {
+      transition: 0.3s ease-in-out;
+    }
 
     &::before,
     &::after {
@@ -111,24 +126,142 @@
       width: 100%;
 
       left: 0;
-      height: 100%;
+      height: 1.6px;
 
-      background-color: inherit;
+      background-color: $black;
 
-      border-radius: inherit;
+      border-radius: 1px;
     }
 
     &::before {
-      top: 5px;
+      top: 7px;
     }
     &::after {
-      bottom: 5px;
+      bottom: 7px;
     }
   }
 
-  @media (max-width: 767px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  span {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background-color: $black;
+
+    border-radius: 1px;
+  }
+
+  &.open {
+    background-color: #242424;
+  }
+
+  &.open &__inner {
+    &::before,
+    &::after,
+    span {
+      background-color: #fff;
+    }
+    span {
+      animation: openBurgerSpan 0.3s ease-in-out forwards;
+    }
+    &::before {
+      animation: openBurgerBefore 0.3s ease-in-out forwards;
+    }
+    &::after {
+      animation: openBurgerAfter 0.3s ease-in-out forwards;
+    }
+  }
+  &.close &__inner {
+    &::before,
+    &::after,
+    span {
+      background-color: $black;
+    }
+    span {
+      animation: closeBurgerSpan 0.3s ease-in-out backwards;
+    }
+    &::before {
+      animation: closeBurgerBefore 0.3s ease-in-out backwards;
+    }
+    &::after {
+      animation: closeBurgerAfter 0.3s ease-in-out backwards;
+    }
+  }
+}
+
+@keyframes openBurgerBefore {
+  0% {
+    top: 7px;
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(4px) rotate(45deg);
+  }
+}
+
+@keyframes openBurgerAfter {
+  0% {
+    bottom: 7px;
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+}
+
+@keyframes openBurgerSpan {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+// close
+@keyframes closeBurgerBefore {
+  0% {
+    transform: translateY(4px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(4px) rotate(0);
+  }
+  100% {
+    top: 7px;
+  }
+}
+
+@keyframes closeBurgerAfter {
+  0% {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(0);
+  }
+  100% {
+    bottom: 7px;
+  }
+}
+
+@keyframes closeBurgerSpan {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }
