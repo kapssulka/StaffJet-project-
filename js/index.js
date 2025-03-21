@@ -34,17 +34,40 @@ function getTime() {
 // BURGER MENU
 
 const burgerBtn = document.getElementById("js-burger");
+const burgerNav = document.getElementById("js-burger-nav");
+const burgerNavLinks = document.querySelectorAll(".burger-nav__link");
+
 if (burgerBtn) {
   burgerBtn.addEventListener("click", () => {
-    if (burgerBtn.classList.contains("open")) {
-      burgerBtn.classList.remove("open");
-      burgerBtn.classList.add("close");
+    if (burgerBtn.classList.contains("_open")) {
+      removeBurgerNav();
+
+      burgerBtn.classList.add("_close");
 
       setTimeout(() => {
-        burgerBtn.classList.remove("close");
+        burgerBtn.classList.remove("_close");
       }, 300);
-    } else {
-      burgerBtn.classList.add("open");
-    }
+    } else openBurgerNav();
   });
+}
+
+if (burgerNavLinks.length > 0) {
+  burgerNavLinks.forEach((link) => {
+    link.addEventListener("click", () => removeBurgerNav());
+  });
+}
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 767) removeBurgerNav();
+});
+
+function openBurgerNav() {
+  burgerBtn.classList.add("_open");
+  burgerNav.classList.add("_open");
+  document.body.classList.add("_hidden");
+}
+function removeBurgerNav() {
+  burgerBtn.classList.remove("_open");
+  burgerNav.classList.remove("_open");
+  document.body.classList.remove("_hidden");
 }

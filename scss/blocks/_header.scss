@@ -8,7 +8,6 @@
     width: 100%;
 
     padding-top: 32px;
-    // background-color: red;
 
     @media (max-width: 767px) {
       align-items: center;
@@ -22,7 +21,7 @@
     padding-right: 30px;
 
     @media (max-width: 767px) {
-      width: 151px;
+      height: 26px;
     }
   }
 
@@ -87,6 +86,8 @@
   display: none;
 
   cursor: pointer;
+  position: relative;
+  z-index: 55;
 
   width: 65px;
   height: 48px;
@@ -150,11 +151,11 @@
     border-radius: 1px;
   }
 
-  &.open {
+  &._open {
     background-color: #242424;
   }
 
-  &.open &__inner {
+  &._open &__inner {
     &::before,
     &::after,
     span {
@@ -170,7 +171,7 @@
       animation: openBurgerAfter 0.3s ease-in-out forwards;
     }
   }
-  &.close &__inner {
+  &._close &__inner {
     &::before,
     &::after,
     span {
@@ -188,6 +189,154 @@
   }
 }
 
+.burger-nav {
+  transform: translateX(-100vh);
+
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+
+  &._open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  overflow-y: auto;
+
+  position: absolute;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  height: 100vh;
+  height: 100dvh;
+
+  background-color: $black;
+
+  &__header {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    padding: 43px 40px;
+    background-color: $black;
+
+    @media (max-width: 600px) {
+      padding: 43px 20px;
+    }
+    img {
+      max-width: 151px;
+    }
+  }
+  &__items {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    margin-top: 101px;
+    margin-right: 65px;
+    padding: 0 40px 370px;
+
+    @media (max-width: 600px) {
+      justify-content: start;
+
+      padding: 0 20px 200px;
+      margin-right: 0;
+    }
+  }
+
+  &__bg-img {
+    position: absolute;
+    z-index: -1;
+    right: 60px;
+    top: 0;
+
+    @media (max-width: 600px) {
+      left: 0;
+      right: auto;
+      top: 36px;
+
+      max-width: 339px;
+    }
+  }
+  &__list {
+    li {
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 110.00000000000001%;
+    letter-spacing: -2%;
+
+    color: #606060;
+
+    padding-right: 44px;
+
+    transition: 0.2s ease-in-out;
+
+    @media (max-width: 600px) {
+      font-size: 28px;
+    }
+
+    &:hover {
+      color: #fff;
+      span {
+        color: #fff;
+      }
+    }
+
+    span {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 110.00000000000001%;
+      letter-spacing: -2%;
+
+      color: #606060;
+
+      transition: 0.2s ease-in-out;
+
+      @media (max-width: 600px) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__footer {
+    text-align: center;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: -2%;
+
+    padding: 0 40px;
+
+    color: #787878;
+
+    margin-bottom: 70px;
+
+    @media (max-width: 600px) {
+      text-align: start;
+
+      padding: 0 20px;
+    }
+  }
+}
+
+// BURGER ANIMATE --------------------------------
+
+// open
 @keyframes openBurgerBefore {
   0% {
     top: 7px;
