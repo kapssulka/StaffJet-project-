@@ -99,3 +99,26 @@ window.addEventListener("resize", () => {
     header.classList.remove("_fixed");
   }
 });
+
+// ANIMATE SERVICES SWIPE
+
+const servicesCards = document.querySelectorAll("#js-services-card");
+
+if (servicesCards.length > 0) {
+  servicesCards.forEach((card) => {
+    const cardButton = card.querySelector(".card-services__button");
+
+    cardButton.addEventListener("click", () => {
+      if (card.classList.contains("_open")) {
+        card.classList.remove("_open");
+
+        card.classList.add("_close");
+        setTimeout(() => {
+          card.classList.remove("_close");
+        }, 600);
+      } else {
+        card.classList.add("_open");
+      }
+    });
+  });
+}
