@@ -51,9 +51,25 @@ if (burgerBtn) {
   });
 }
 
+// links
 if (burgerNavLinks.length > 0) {
   burgerNavLinks.forEach((link) => {
-    link.addEventListener("click", () => removeBurgerNav());
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const href = link.getAttribute("href");
+
+      removeBurgerNav();
+
+      if (typeof href === "string" && href.startsWith("#") && href.length > 1) {
+        const targetElement = document.getElementById(href.slice(1)); // Ищем по ID
+
+        if (targetElement) {
+          setTimeout(() => {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+          }, 50);
+        }
+      }
+    });
   });
 }
 
