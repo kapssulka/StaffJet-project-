@@ -141,6 +141,10 @@ h6,
   line-height: 18.9px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
@@ -187,8 +191,8 @@ main {
           flex: 1 1 auto;
 }
 
-.none {
-  display: none !important;
+.header._fixed + main {
+  padding-top: 110px;
 }
 
 .section-name {
@@ -396,6 +400,17 @@ main {
 .header {
   position: relative;
   z-index: 10;
+  width: 100%;
+}
+.header._fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(231, 236, 242, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px); /* Размытие фона за элементом */
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для эффекта глубины */
 }
 .header__inner {
   display: -webkit-box;

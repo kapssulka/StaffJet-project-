@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
@@ -42,6 +46,6 @@ main {
   flex: 1 1 auto;
 }
 
-.none {
-  display: none !important;
+.header._fixed + main {
+  padding-top: 110px;
 }

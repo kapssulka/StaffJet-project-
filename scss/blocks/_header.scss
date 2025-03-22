@@ -1,6 +1,19 @@
 .header {
   position: relative;
   z-index: 10;
+  width: 100%;
+
+  &._fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background: rgba($color: $white-bg, $alpha: 0.5);
+
+    backdrop-filter: blur(10px); /* Размытие фона за элементом */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для эффекта глубины */
+  }
+
   &__inner {
     display: flex;
     align-items: start;

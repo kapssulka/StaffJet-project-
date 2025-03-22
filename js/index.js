@@ -57,10 +57,6 @@ if (burgerNavLinks.length > 0) {
   });
 }
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 767) removeBurgerNav();
-});
-
 function openBurgerNav() {
   burgerBtn.classList.add("_open");
   burgerNav.classList.add("_open");
@@ -71,3 +67,35 @@ function removeBurgerNav() {
   burgerNav.classList.remove("_open");
   document.body.classList.remove("_hidden");
 }
+
+// FIXED HEADER
+
+const header = document.getElementById("js-header");
+let lastScrollTop = window.scrollY;
+
+if (header) {
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.scrollY;
+
+    if (
+      scrollTop < lastScrollTop &&
+      (scrollTop > 200) & (window.innerWidth < 768)
+    ) {
+      header.classList.add("_fixed");
+    } else {
+      header.classList.remove("_fixed");
+    }
+
+    lastScrollTop = scrollTop;
+  });
+}
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 767) {
+    // УБИРАЕМ БУРГЕР НАВИГАЦИЮ
+    removeBurgerNav();
+
+    // УБИРАЕМ ФИКСАЦИЮ
+    header.classList.remove("_fixed");
+  }
+});
