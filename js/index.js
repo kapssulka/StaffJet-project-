@@ -138,3 +138,18 @@ if (servicesCards.length > 0) {
     });
   });
 }
+
+// ACCORDION
+
+const accordionItems = document.querySelectorAll("#js-accordion-item");
+
+if (accordionItems.length > 0) {
+  accordionItems.forEach((item, _, array) => {
+    item.addEventListener("click", () => {
+      if (item.classList.contains("_active")) return;
+
+      array.forEach((item) => item.classList.remove("_active"));
+      item.classList.add("_active");
+    });
+  });
+}
