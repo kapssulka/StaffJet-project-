@@ -160,10 +160,11 @@
     background-color: $blue-hover;
   }
 
-  &:hover &__icon {
-    img {
-      transform: rotate(-45deg);
-    }
+  &._arrow-animate:hover .button__icon img {
+    transform: rotate(-45deg);
+  }
+  &._download-animate:hover .button__icon img {
+    transform: scale(1.1);
   }
 
   &__text {
