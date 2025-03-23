@@ -148,6 +148,10 @@
       34px -135px 84px 0px #b3b3b30d, 60px -241px 99px 0px #b3b3b303,
       94px -376px 109px 0px #b3b3b300;
 
+    &:first-child {
+      box-shadow: none;
+    }
+
     border-radius: 8px;
 
     overflow: hidden;
@@ -155,8 +159,13 @@
 
     transition: height 0.2s linear;
 
+    will-change: height;
+
     &._active {
       height: 340px;
+    }
+    &._active .agency-accordion__item-text {
+      animation: openAccordion 0.2s ease-in-out forwards;
     }
 
     &._active {
@@ -223,12 +232,12 @@
   }
 
   &__item-text {
-    // height: 220px;
     vertical-align: bottom;
     font-weight: 600;
     font-size: 28px;
     line-height: 130%;
     letter-spacing: -2%;
+    opacity: 0;
 
     #color-blue {
       color: $blue;
@@ -237,5 +246,17 @@
     @media (max-width: 600px) {
       font-size: 16px;
     }
+  }
+}
+
+@keyframes openAccordion {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
