@@ -27,6 +27,9 @@
   }
 
   &__title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     margin-bottom: 60px;
     @media (max-width: 1024px) {
       margin-bottom: 120px;
@@ -34,7 +37,10 @@
   }
 
   &__title {
+    cursor: pointer;
     position: relative;
+
+    display: inline-block;
 
     font-weight: 700;
     font-size: 60px;
@@ -45,7 +51,11 @@
 
     padding-left: 28px;
 
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 40%;
+    }
 
     @media (max-width: 600px) {
       font-size: 40px;
@@ -150,11 +160,25 @@
   }
 
   &__titles-statistics {
+    position: relative;
     h3 {
+      position: absolute;
+      transform: translateY(-50%);
+
+      opacity: 0;
+      visibility: hidden;
+
       font-weight: 300;
       font-size: 72px;
       line-height: 100%;
       letter-spacing: -2%;
+
+      transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+
+      &._active {
+        opacity: 1;
+        visibility: visible;
+      }
 
       #color-blue {
         color: $blue;

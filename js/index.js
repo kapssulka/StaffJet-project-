@@ -153,3 +153,39 @@ if (accordionItems.length > 0) {
     });
   });
 }
+
+// DATA SWITCH
+
+const buttonFoodRetail = document.getElementById("js-food-retail-button");
+const buttonNonFoodRetail = document.getElementById(
+  "js-non-food-retail-button"
+);
+
+const dataNonFoodRetail = document.querySelectorAll("#js-non-food-retail-data");
+const dataFoodRetail = document.querySelectorAll("#js-food-retail-data");
+
+if (buttonFoodRetail) {
+  buttonFoodRetail.addEventListener("click", () => {
+    if (buttonFoodRetail.classList.contains("_active")) return;
+
+    buttonFoodRetail.classList.add("_active");
+    buttonNonFoodRetail.classList.remove("_active");
+
+    dataNonFoodRetail.forEach((item) => item.classList.remove("_active"));
+
+    dataFoodRetail.forEach((item) => item.classList.add("_active"));
+  });
+}
+
+if (buttonNonFoodRetail) {
+  buttonNonFoodRetail.addEventListener("click", () => {
+    if (buttonNonFoodRetail.classList.contains("_active")) return;
+
+    buttonNonFoodRetail.classList.add("_active");
+    buttonFoodRetail.classList.remove("_active");
+
+    dataFoodRetail.forEach((item) => item.classList.remove("_active"));
+
+    dataNonFoodRetail.forEach((item) => item.classList.add("_active"));
+  });
+}
