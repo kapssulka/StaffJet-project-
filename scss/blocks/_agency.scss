@@ -106,6 +106,9 @@
 
       margin-top: 0;
     }
+    @media (max-width: 767px) {
+      background-image: url("./../images/background/agency/agency-bg-mobile-2.png");
+    }
   }
 
   &__content {
