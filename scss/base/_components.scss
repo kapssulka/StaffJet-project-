@@ -9,9 +9,23 @@
   border: 1px solid $black;
   border-radius: 800px;
 
+  #visible-pc {
+    display: inline;
+  }
+  #visible-mobile {
+    display: none;
+  }
+
   @media (max-width: 840px) {
     top: 5px;
     padding: 8px 12px;
+
+    #visible-pc {
+      display: none;
+    }
+    #visible-mobile {
+      display: inline;
+    }
   }
 
   @media (max-width: 600px) {

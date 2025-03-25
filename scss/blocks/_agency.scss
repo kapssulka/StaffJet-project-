@@ -15,12 +15,6 @@
         max-width: 1080px;
       }
     }
-    #visible-pc {
-      display: inline;
-    }
-    #visible-mobile {
-      display: none;
-    }
 
     // background
     @media (max-width: 1440px) {
@@ -32,13 +26,6 @@
     @media (max-width: 840px) {
       background-image: url("./../images/background/agency/agency-bg-tablet-1.png");
       padding: 100px 0 269px;
-
-      #visible-pc {
-        display: none;
-      }
-      #visible-mobile {
-        display: inline;
-      }
     }
     @media (max-width: 767px) {
       background-image: url("./../images/background/agency/agency-bg-mobile-1.png");
