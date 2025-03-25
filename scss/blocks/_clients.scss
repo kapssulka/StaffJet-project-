@@ -1,0 +1,130 @@
+.clients {
+  margin: 300px 0 126px;
+
+  background-image: url("./../images/background/clients/clients-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  // background
+  @media (max-width: 1024px) {
+    background-image: url("./../images/background/clients/clients-bg-1024.png");
+    padding: 100px 0 220px;
+
+    margin: 0;
+  }
+  @media (max-width: 840px) {
+    background-image: url("./../images/background/clients/clients-bg-tablet.png");
+
+    padding: 100px 0 100px;
+  }
+  @media (max-width: 767px) {
+    background-image: url("./../images/background/clients/clients-bg-mobile.png");
+  }
+
+  @media (max-width: 600px) {
+    padding: 80px 0 80px;
+  }
+
+  &__inner {
+    transform: translateY(30px);
+
+    @media (max-width: 1024px) {
+      transform: translateY(0);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    padding-top: 30px;
+
+    @media (max-width: 1024px) {
+      padding-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 80px;
+    }
+  }
+
+  &__grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1/1;
+    padding: 40px;
+
+    &:nth-child(1) {
+      border-bottom: 1px solid $black;
+      border-right: 1px solid $black;
+    }
+    &:nth-child(2) {
+      border-bottom: 1px solid $black;
+      border-right: 1px solid $black;
+    }
+    &:nth-child(3) {
+      border-bottom: 1px solid $black;
+      border-right: 1px solid $black;
+    }
+    &:nth-child(4) {
+      border-bottom: 1px solid $black;
+    }
+
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(7) {
+      border-right: 1px solid $black;
+    }
+
+    @media (max-width: 1024px) {
+      padding: 25px;
+    }
+    @media (max-width: 600px) {
+      &:nth-child(1) {
+        border-bottom: 1px solid $black;
+        border-right: 1px solid $black;
+      }
+      &:nth-child(2) {
+        border-bottom: 1px solid $black;
+        border-right: none;
+      }
+      &:nth-child(3) {
+        border-bottom: 1px solid $black;
+        border-right: 1px solid $black;
+      }
+      &:nth-child(4) {
+        border-bottom: 1px solid $black;
+        border-right: none;
+      }
+
+      &:nth-child(5) {
+        border-bottom: 1px solid $black;
+
+        border-right: 1px solid $black;
+      }
+      &:nth-child(6) {
+        border-bottom: 1px solid $black;
+
+        border-right: none;
+      }
+      &:nth-child(7) {
+        border-right: 1px solid $black;
+      }
+    }
+
+    img {
+      max-width: 100%;
+
+      @media (max-width: 1024px) {
+        height: 41px;
+      }
+      @media (max-width: 840px) {
+        height: 30px;
+      }
+    }
+  }
+}
