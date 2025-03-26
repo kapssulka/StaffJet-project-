@@ -123,9 +123,18 @@
   width: 100%;
 
   &__button {
-    .button__text,
-    .button__icon {
-      background-color: $black;
+    justify-self: start;
+    &._disabled {
+      .button {
+        &__text,
+        &__icon {
+          background-color: $black;
+        }
+
+        &._arrow-animate:hover .button__icon img {
+          transform: rotate(0);
+        }
+      }
     }
   }
 }
@@ -156,6 +165,10 @@
     #required {
       color: #ff4a4a;
     }
+
+    @media (max-width: 1024px) {
+      font-size: 28px;
+    }
   }
 
   &__input {
@@ -177,6 +190,19 @@
       resize: none;
 
       height: 78px;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $black; /* Цвет ползунка */
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #f0f0f0; /* Цвет фона */
+      }
     }
   }
 
@@ -189,13 +215,73 @@
       visibility: hidden;
     }
   }
+
+  &__error {
+    display: none;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -2%;
+
+    color: #ff4a4a;
+
+    @media (max-width: 400px) {
+      top: -10px;
+    }
+  }
+
+  &._error &__error {
+    display: block;
+  }
+
+  &__pattern-tel {
+    opacity: 0;
+    visibility: hidden;
+
+    position: absolute;
+    z-index: -1;
+    top: 35px;
+    left: 0;
+
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -2%;
+
+    color: #787878;
+
+    transition: all 0.2s ease-in-out;
+
+    &._focus {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
 .custom-checkbox {
   cursor: pointer;
+  position: relative;
   display: inline-flex;
 
-  margin-bottom: 32px;
+  padding-bottom: 32px;
+
+  .input-form__error {
+    left: 0;
+    bottom: 10px;
+    top: auto;
+  }
+
+  &._error {
+    .input-form__error {
+      display: block;
+    }
+  }
 
   &__input {
     display: none;

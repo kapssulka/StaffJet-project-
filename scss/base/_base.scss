@@ -20,6 +20,19 @@ body {
   &._hidden {
     overflow: hidden;
   }
+
+  &::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $black; /* Цвет ползунка */
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #d2d2d2; /* Цвет фона */
+  }
 }
 
 ._container {

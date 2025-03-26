@@ -169,16 +169,34 @@
     transition: inherit;
   }
 
-  &:hover &__text,
-  &:hover &__icon {
-    background-color: $blue-hover;
+  // Стили для отключённой кнопки
+  &:disabled {
+    pointer-events: none;
+
+    .button__text,
+    .button__icon {
+      background-color: $black; // Цвет для disabled
+    }
+
+    // Полностью убираем эффекты hover
+    &._arrow-animate:hover .button__icon img,
+    &._download-animate:hover .button__icon img {
+      transform: none;
+    }
   }
 
-  &._arrow-animate:hover .button__icon img {
-    transform: rotate(-45deg);
-  }
-  &._download-animate:hover .button__icon img {
-    transform: scale(1.1);
+  @media (hover: hover) {
+    &:hover &__text,
+    &:hover &__icon {
+      background-color: $blue-hover;
+    }
+
+    &._arrow-animate:hover .button__icon img {
+      transform: rotate(-45deg);
+    }
+    &._download-animate:hover .button__icon img {
+      transform: scale(1.1);
+    }
   }
 
   &__text {

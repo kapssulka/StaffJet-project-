@@ -160,6 +160,16 @@ body a {
 body._hidden {
   overflow: hidden;
 }
+body::-webkit-scrollbar {
+  width: 20px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #1e1e1e; /* Цвет ползунка */
+  border-radius: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: #d2d2d2; /* Цвет фона */
+}
 
 ._container {
   max-width: 1440px;
@@ -371,16 +381,29 @@ main {
   -webkit-transition: inherit;
   transition: inherit;
 }
-.button:hover .button__text, .button:hover .button__icon {
-  background-color: #1d3c9c;
+.button:disabled {
+  pointer-events: none;
 }
-.button._arrow-animate:hover .button__icon img {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+.button:disabled .button__text,
+.button:disabled .button__icon {
+  background-color: #1e1e1e;
 }
-.button._download-animate:hover .button__icon img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+.button:disabled._arrow-animate:hover .button__icon img, .button:disabled._download-animate:hover .button__icon img {
+  -webkit-transform: none;
+          transform: none;
+}
+@media (hover: hover) {
+  .button:hover .button__text, .button:hover .button__icon {
+    background-color: #1d3c9c;
+  }
+  .button._arrow-animate:hover .button__icon img {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .button._download-animate:hover .button__icon img {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
 }
 .button__text {
   font-weight: 600;
@@ -3282,9 +3305,15 @@ main {
 .form {
   width: 100%;
 }
-.form__button .button__text,
-.form__button .button__icon {
+.form__button {
+  justify-self: start;
+}
+.form__button._disabled .button__text, .form__button._disabled .button__icon {
   background-color: #1e1e1e;
+}
+.form__button._disabled .button._arrow-animate:hover .button__icon img {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
 }
 
 .input-form {
@@ -3310,6 +3339,11 @@ main {
 .input-form__placeholder #required {
   color: #ff4a4a;
 }
+@media (max-width: 1024px) {
+  .input-form__placeholder {
+    font-size: 28px;
+  }
+}
 .input-form__input {
   display: block;
   width: 100%;
@@ -3324,6 +3358,16 @@ main {
 .input-form__input._textarea {
   resize: none;
   height: 78px;
+}
+.input-form__input._textarea::-webkit-scrollbar {
+  width: 5px;
+}
+.input-form__input._textarea::-webkit-scrollbar-thumb {
+  background: #1e1e1e; /* Цвет ползунка */
+  border-radius: 4px;
+}
+.input-form__input._textarea::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Цвет фона */
 }
 .input-form__input:not(:-moz-placeholder-shown) ~ .input-form__placeholder {
   font-size: 16px;
@@ -3346,13 +3390,60 @@ main {
   opacity: 0;
   visibility: hidden;
 }
+.input-form__error {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -2%;
+  color: #ff4a4a;
+}
+@media (max-width: 400px) {
+  .input-form__error {
+    top: -10px;
+  }
+}
+.input-form._error .input-form__error {
+  display: block;
+}
+.input-form__pattern-tel {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+  top: 35px;
+  left: 0;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: -2%;
+  color: #787878;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.input-form__pattern-tel._focus {
+  opacity: 1;
+  visibility: visible;
+}
 
 .custom-checkbox {
   cursor: pointer;
+  position: relative;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  margin-bottom: 32px;
+  padding-bottom: 32px;
+}
+.custom-checkbox .input-form__error {
+  left: 0;
+  bottom: 10px;
+  top: auto;
+}
+.custom-checkbox._error .input-form__error {
+  display: block;
 }
 .custom-checkbox__input {
   display: none;
