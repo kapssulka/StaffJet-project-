@@ -1,4 +1,10 @@
 .clients {
+  .section-title {
+    &__part-2 {
+      max-width: 1080px;
+    }
+  }
+
   margin: 300px 0 126px;
 
   background-image: url("./../images/background/clients/clients-bg.png");

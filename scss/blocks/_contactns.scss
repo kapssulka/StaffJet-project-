@@ -1,0 +1,249 @@
+.contacts {
+  padding: 100px 0;
+
+  background-image: url("./../images/background/contacts/contacts-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background
+  @media (max-width: 1440px) {
+    background-size: 100% 100%;
+  }
+  @media (max-width: 1024px) {
+    background-image: url("./../images/background/contacts/contacts-bg-1024.png");
+
+    padding: 100px 0 120px;
+  }
+  @media (max-width: 840px) {
+    background-image: url("./../images/background/contacts/contacts-bg-tablet.png");
+    padding: 100px 0 100px;
+  }
+  @media (max-width: 767px) {
+    background-image: url("./../images/background/contacts/contacts-bg-mobile.png");
+  }
+  @media (max-width: 600px) {
+    padding: 80px 0 63px;
+  }
+
+  &__content {
+    display: flex;
+
+    margin-top: 160px;
+
+    @media (max-width: 840px) {
+      flex-direction: column-reverse;
+    }
+    @media (max-width: 600px) {
+      margin-top: 80px;
+    }
+  }
+
+  &__links {
+    @media (max-width: 840px) {
+      margin-left: $margin-left-840;
+
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      margin-left: 0;
+    }
+  }
+
+  &__link-item {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__link-item-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 110.00000000000001%;
+    letter-spacing: -2%;
+
+    opacity: 25%;
+
+    margin-bottom: 4px;
+
+    @media (max-width: 744px) {
+      font-size: 20px;
+    }
+  }
+
+  &__link-item-link {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 110.00000000000001%;
+    letter-spacing: -2%;
+
+    white-space: nowrap;
+
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-offset: 0%;
+    text-decoration-thickness: 0%;
+    text-decoration-skip-ink: auto;
+  }
+
+  //   form
+
+  &__form-block {
+    max-width: 670px;
+    width: 100%;
+
+    margin-left: 390px;
+
+    @media (max-width: 1440px) {
+      margin-left: 23vw;
+    }
+    @media (max-width: 1024px) {
+      margin-left: 12.5vw;
+    }
+    @media (max-width: 840px) {
+      margin-left: $margin-left-840;
+
+      width: auto;
+    }
+    @media (max-width: 600px) {
+      margin-left: 0;
+    }
+  }
+
+  &__form-subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -2%;
+
+    margin-bottom: 32px;
+  }
+}
+.form {
+  width: 100%;
+
+  &__button {
+    .button__text,
+    .button__icon {
+      background-color: $black;
+    }
+  }
+}
+.input-form {
+  position: relative;
+
+  border-bottom: 1px solid #787878;
+  padding-top: 23px;
+  padding-bottom: 9px;
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 8px;
+
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -2%;
+
+    color: #787878;
+
+    transition: all 0.2s ease-in-out;
+
+    #required {
+      color: #ff4a4a;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -2%;
+
+    margin-top: 8px;
+
+    color: #000;
+
+    background-color: transparent;
+
+    &._textarea {
+      resize: none;
+
+      height: 78px;
+    }
+  }
+
+  &__input:focus ~ &__placeholder,
+  &__input:not(:placeholder-shown) ~ &__placeholder {
+    font-size: 16px;
+
+    #brackets {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+.custom-checkbox {
+  cursor: pointer;
+  display: inline-flex;
+
+  margin-bottom: 32px;
+
+  &__input {
+    display: none;
+  }
+
+  &__box {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $blue;
+    border-radius: 4px;
+    position: relative;
+
+    border-radius: 8px;
+
+    transition: all 0.2s ease-in-out;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      opacity: 0;
+
+      transition: inherit;
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: -2%;
+
+    color: #787878;
+
+    max-width: 410px;
+
+    margin-left: 14px;
+  }
+
+  &__input:checked + &__box {
+    border: none;
+
+    img {
+      opacity: 1;
+    }
+  }
+}
