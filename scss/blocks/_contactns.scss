@@ -271,7 +271,7 @@
   position: relative;
   display: inline-flex;
 
-  padding-bottom: 32px;
+  margin-bottom: 32px;
 
   .input-form__error {
     left: 0;
@@ -279,12 +279,9 @@
     top: auto;
   }
 
-  &._error {
-    .input-form__error {
-      display: block;
-    }
+  &._error &__text {
+    color: #ff4a4a;
   }
-
   &__input {
     display: none;
   }
@@ -293,11 +290,10 @@
     flex-shrink: 0;
     width: 20px;
     height: 20px;
-    border: 1px solid $blue;
+    border: 1px solid #787878;
     border-radius: 4px;
-    position: relative;
 
-    border-radius: 8px;
+    position: relative;
 
     transition: all 0.2s ease-in-out;
 

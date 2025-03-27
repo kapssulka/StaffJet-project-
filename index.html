@@ -29,30 +29,33 @@
           <nav class="header__nav">
             <ul class="header__nav-list">
               <li class="header__nav-list-item">
-                <a id="js-link" href="#about-us" class="header__nav-link"
-                  >О нас</a
-                >
+                <a href="#about-us" class="header__nav-link">О нас</a>
               </li>
             </ul>
             <ul class="header__nav-list">
-              <li id="js-link" class="header__nav-list-item">
+              <li class="header__nav-list-item">
                 <a href="#agency" class="header__nav-link"
                   >Рекламное агентство</a
                 >
               </li>
-              <li id="js-link" class="header__nav-list-item">
+              <li class="header__nav-list-item">
                 <a href="#" class="header__nav-link">Контактный центр</a>
               </li>
-              <li id="js-link" class="header__nav-list-item">
+              <li class="header__nav-list-item">
                 <a href="#cpa" class="header__nav-link">CPA-сеть</a>
               </li>
             </ul>
             <ul class="header__nav-list">
-              <li id="js-link" class="header__nav-list-item">
+              <li class="header__nav-list-item">
                 <a href="#" class="header__nav-link">WEB-мастерам</a>
               </li>
-              <li id="js-link" class="header__nav-list-item">
-                <a href="#" class="header__nav-link">Staffjet ПО</a>
+              <li class="header__nav-list-item">
+                <a
+                  target="_blank"
+                  href="https://staffjet.ru/client/user/login/?next=/client/"
+                  class="header__nav-link"
+                  >Staffjet ПО</a
+                >
               </li>
             </ul>
           </nav>
@@ -95,7 +98,10 @@
                   >
                 </li>
                 <li>
-                  <a id="js-link" class="burger-nav__link" href="#"
+                  <a
+                    target="_blank"
+                    class="burger-nav__link"
+                    href="https://staffjet.ru/client/user/login/?next=/client/"
                     >Staffjet ПО <span>(06)</span></a
                   >
                 </li>
@@ -1150,13 +1156,14 @@
 
                 <form id="js-form" action="#" class="form">
                   <!-- NAME -->
-                  <div id="js-required-wrapper-input" class="input-form">
+                  <div class="input-form js-required-wrapper-input">
                     <input
                       class="input-form__input"
                       id="name"
                       name="name"
                       type="text"
                       placeholder=""
+                      autocomplete="name"
                       required
                     />
 
@@ -1173,13 +1180,14 @@
                     </div>
                   </div>
                   <!-- TEL -->
-                  <div id="js-required-wrapper-input" class="input-form">
+                  <div class="input-form js-required-wrapper-input">
                     <input
                       class="input-form__input"
                       type="tel"
                       id="tel"
                       name="tel"
                       placeholder=""
+                      autocomplete="tel"
                       required
                     />
 
@@ -1201,13 +1209,14 @@
                     </div>
                   </div>
                   <!-- EMAIL -->
-                  <div id="js-required-wrapper-input" class="input-form">
+                  <div class="input-form js-required-wrapper-input">
                     <input
                       class="input-form__input"
                       id="email"
                       name="email"
                       type="email"
                       placeholder=""
+                      autocomplete="email"
                       required
                     />
 
@@ -1224,7 +1233,7 @@
                     </div>
                   </div>
                   <!-- COMMENT -->
-                  <div id="js-required-wrapper-input" class="input-form">
+                  <div class="input-form js-required-wrapper-input">
                     <textarea
                       placeholder=""
                       class="input-form__input _textarea"
@@ -1244,8 +1253,7 @@
 
                   <!-- CHECKBOX -->
                   <label
-                    id="js-required-wrapper-input"
-                    class="custom-checkbox"
+                    class="custom-checkbox js-required-wrapper-input"
                     for="privacy_policy"
                   >
                     <input
@@ -1261,10 +1269,6 @@
                       Я даю согласие на обработку моих персональных данных,
                       включая их сбор, хранение и использование в соответствии с
                       действующим законодательством.
-                    </div>
-
-                    <div id="js-form-error" class="input-form__error">
-                      Согласие обязательно
                     </div>
                   </label>
 
@@ -1326,7 +1330,12 @@
                       >
                     </li>
                     <li>
-                      <a href="#" class="footer-nav-block__link">Staffjet ПО</a>
+                      <a
+                        target="_blank"
+                        href="https://staffjet.ru/client/user/login/?next=/client/"
+                        class="footer-nav-block__link"
+                        >Staffjet ПО</a
+                      >
                     </li>
                   </ul>
                 </div>

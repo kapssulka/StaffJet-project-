@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const paternTelEl = document.getElementById("js-tel-pattern");
 
-    let nameValue = name.innerText;
-    let telValue = tel.innerText;
-    let emailValue = email.innerText;
+    let nameValue = name.value;
+    let telValue = tel.value;
+    let emailValue = email.value;
     let checkboxlValue = checkbox.checked;
 
     formButtonWrapper.addEventListener("click", () => {
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function validation(input, inputValue = null, rule) {
       const value = inputValue || input.innerText;
 
-      const wrapper = input.closest("#js-required-wrapper-input");
+      const wrapper = input.closest(".js-required-wrapper-input");
 
       const errorEl = wrapper.querySelector(".input-form__error");
 
