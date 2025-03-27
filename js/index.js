@@ -191,3 +191,25 @@ if (buttonNonFoodRetail) {
     dataNonFoodRetail.forEach((item) => item.classList.add("_active"));
   });
 }
+
+// POP UP
+
+const popup = document.getElementById("js-pop-up");
+const popupButton = document.getElementById("js-close-pop-up");
+
+if (popup) {
+  popup.style.display = "none";
+  popup.onclick = (e) => {
+    e.stopPropagation();
+
+    if (popup === e.target) {
+      popup.classList.remove("_active");
+      popup.style.display = "none";
+    }
+
+    if (popupButton.contains(e.target)) {
+      popup.classList.remove("_active");
+      popup.style.display = "none";
+    }
+  };
+}

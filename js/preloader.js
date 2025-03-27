@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setTimeout(() => {
         preloader.classList.remove("_loading");
+        preloader.classList.remove("_close-animate");
       }, 2500);
     }
   }, 1000);
