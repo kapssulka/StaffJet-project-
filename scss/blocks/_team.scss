@@ -6,11 +6,10 @@
   background-image: url("./../images/background/team/team-bg.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+
   // background
-  @media (max-width: 1440px) {
-    background-size: 100% 100%;
-  }
+
   @media (max-width: 1024px) {
     background-image: url("./../images/background/team/team-bg-1024.png");
     padding: 100px 0;
@@ -48,7 +47,11 @@
   &__avatars {
     position: absolute;
     top: 11px;
-    left: 575px;
+    left: 742px;
+
+    @media (max-width: 1920px) {
+      left: 38.64vw;
+    }
 
     @media (max-width: 1440px) {
       left: 40vw;
@@ -78,6 +81,9 @@
 
   &__content {
     padding-left: $margin-left-default;
+    @media (max-width: 1920px) {
+      padding-left: $margin-left-1920;
+    }
     @media (max-width: 1440px) {
       padding-left: $margin-left-1440;
     }
@@ -115,7 +121,6 @@
 
   &__number {
     opacity: 50%;
-    // margin-bottom: ;
 
     font-weight: 500;
     font-size: 20px;
@@ -125,12 +130,13 @@
     margin-right: 5.5vw;
 
     @media (max-width: 1024px) {
-      margin-right: 11.1vw;
+      margin-right: 50px;
     }
     @media (max-width: 744px) {
-      margin-right: 9.54vw;
-
       font-size: 16px;
+    }
+    @media (max-width: 420px) {
+      margin-right: 20px;
     }
   }
 
@@ -144,17 +150,13 @@
 
     padding-right: 25px;
 
-    @media (max-width: 1024px) {
-      #visible-pc {
-        display: none;
-      }
-    }
-
     @media (max-width: 744px) {
       font-size: 16px;
     }
     @media (max-width: 600px) {
-      padding-right: 0;
+      white-space: unset;
+
+      max-width: 80px;
     }
   }
 
@@ -167,22 +169,6 @@
     letter-spacing: -2%;
 
     text-align: end;
-
-    #visible-pc {
-      display: inline;
-    }
-    #visible-mobile {
-      display: none;
-    }
-
-    @media (max-width: 1024px) {
-      #visible-pc {
-        display: none;
-      }
-      #visible-mobile {
-        display: inline;
-      }
-    }
 
     @media (max-width: 744px) {
       font-size: 16px;

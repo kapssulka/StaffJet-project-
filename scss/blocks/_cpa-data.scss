@@ -2,16 +2,14 @@
   background-image: url("./../images/background/cpa-data/cpa-data-bg.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 
   padding-top: 100px;
 
   margin-bottom: 138px;
 
   // background
-  @media (max-width: 1440px) {
-    background-size: 100% 100%;
-  }
+
   @media (max-width: 1024px) {
     background-image: url("./../images/background/cpa-data/cpa-data-bg-1024.png");
 

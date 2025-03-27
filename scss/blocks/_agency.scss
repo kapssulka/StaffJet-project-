@@ -8,7 +8,7 @@
     background-image: url("./../images/background/agency/agency-bg.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
 
     .section-title {
       &__part-2 {
@@ -17,9 +17,7 @@
     }
 
     // background
-    @media (max-width: 1440px) {
-      background-size: 100% 100%;
-    }
+
     @media (max-width: 1024px) {
       background-image: none;
     }

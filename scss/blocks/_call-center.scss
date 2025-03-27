@@ -4,11 +4,10 @@
   background-image: url("./../images/background/call-center/call-center-bg.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+
   // background
-  @media (max-width: 1440px) {
-    background-size: 100% 100%;
-  }
+
   @media (max-width: 1024px) {
     background-image: url("./../images/background/call-center/call-center-bg-1024.png");
   }
@@ -34,6 +33,9 @@
     margin-bottom: 120px;
 
     margin-left: $margin-left-default;
+    @media (max-width: 1920px) {
+      margin-left: $margin-left-1920;
+    }
     @media (max-width: 1440px) {
       margin-left: $margin-left-1440;
     }
@@ -55,6 +57,9 @@
 
   &__text-list {
     padding-left: $margin-left-default;
+    @media (max-width: 1920px) {
+      padding-left: $margin-left-1920;
+    }
     @media (max-width: 1440px) {
       padding-left: $margin-left-1440;
     }
@@ -70,6 +75,8 @@
   }
 
   &__text-list-item {
+    max-width: 750px;
+
     position: relative;
 
     font-weight: 600;

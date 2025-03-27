@@ -11,11 +11,9 @@
     background-image: url("./../images/background/hiro-section/hiro-section-bg.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     // background
-    @media (max-width: 1440px) {
-      background-size: 100% 100%;
-    }
+
     @media (max-width: 1024px) {
       background-image: url("./../images/background/hiro-section/hiro-section-bg-1024.png");
     }
@@ -57,6 +55,9 @@
       align-items: start;
 
       padding-left: $margin-left-default;
+      @media (max-width: 1920px) {
+        padding-left: $margin-left-1920;
+      }
       @media (max-width: 1440px) {
         padding-left: $margin-left-1440;
       }
@@ -90,7 +91,6 @@
     align-items: center;
 
     margin-top: 133px;
-
     @media (max-width: 1024px) {
       margin-top: -106px;
     }

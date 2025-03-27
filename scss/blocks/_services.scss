@@ -1,14 +1,16 @@
 .services {
   &__inner-top {
-    padding: 100px 0 266px;
+    padding: 100px 0 62px;
 
     background-image: url("./../images/background/services/services-bg.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
+
     // background
+
     @media (max-width: 1440px) {
-      background-size: 100% 100%;
+      padding: 100px 0 266px;
     }
     @media (max-width: 1024px) {
       background-image: none;
@@ -39,15 +41,23 @@
     @media (max-width: 600px) {
       row-gap: 31.2px;
     }
-
     .title-block {
-      max-width: 1160px;
+      max-width: 1330px;
+    }
+    @media (max-width: 1440px) {
+      .title-block {
+        max-width: 1160px;
+      }
     }
   }
 
   &__inner-bottom {
     position: relative;
-    margin-top: 40px;
+    margin-top: 137px;
+
+    @media (max-width: 1440px) {
+      margin-top: 40px;
+    }
 
     @media (max-width: 1140px) {
       margin-top: 0;
@@ -134,8 +144,13 @@
 
   background-color: #fff;
   width: 100%;
-  max-width: 460px;
-  height: 288px;
+  max-width: 537px;
+  height: 420px;
+
+  @media (max-width: 1440px) {
+    max-width: 460px;
+    height: 288px;
+  }
 
   @media (max-width: 1140px) {
     height: 320px;
@@ -202,12 +217,10 @@
 
   &__number {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 28px;
+
     line-height: 110.00000000000001%;
     letter-spacing: -2%;
-    @media (max-width: 1024px) {
-      font-size: 28px;
-    }
   }
 
   &._open &__button {

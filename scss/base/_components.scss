@@ -118,6 +118,9 @@
     text-align: start;
 
     padding-left: $margin-left-default;
+    @media (max-width: 1920px) {
+      padding-left: $margin-left-1920;
+    }
     @media (max-width: 1440px) {
       padding-left: $margin-left-1440;
     }
@@ -135,6 +138,8 @@
   }
   &__part-2 {
     display: block;
+
+    max-width: 1330px;
     @media (max-width: 600px) {
       display: inline;
     }

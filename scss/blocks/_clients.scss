@@ -65,25 +65,25 @@
     padding: 40px;
 
     &:nth-child(1) {
-      border-bottom: 1px solid $black;
-      border-right: 1px solid $black;
+      border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
+      border-right: 1px solid rgba($color: $black, $alpha: 0.5);
     }
     &:nth-child(2) {
-      border-bottom: 1px solid $black;
-      border-right: 1px solid $black;
+      border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
+      border-right: 1px solid rgba($color: $black, $alpha: 0.5);
     }
     &:nth-child(3) {
-      border-bottom: 1px solid $black;
-      border-right: 1px solid $black;
+      border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
+      border-right: 1px solid rgba($color: $black, $alpha: 0.5);
     }
     &:nth-child(4) {
-      border-bottom: 1px solid $black;
+      border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
     }
 
     &:nth-child(5),
     &:nth-child(6),
     &:nth-child(7) {
-      border-right: 1px solid $black;
+      border-right: 1px solid rgba($color: $black, $alpha: 0.5);
     }
 
     @media (max-width: 1024px) {
@@ -91,34 +91,34 @@
     }
     @media (max-width: 600px) {
       &:nth-child(1) {
-        border-bottom: 1px solid $black;
-        border-right: 1px solid $black;
+        border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
+        border-right: 1px solid rgba($color: $black, $alpha: 0.5);
       }
       &:nth-child(2) {
-        border-bottom: 1px solid $black;
+        border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
         border-right: none;
       }
       &:nth-child(3) {
-        border-bottom: 1px solid $black;
-        border-right: 1px solid $black;
+        border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
+        border-right: 1px solid rgba($color: $black, $alpha: 0.5);
       }
       &:nth-child(4) {
-        border-bottom: 1px solid $black;
+        border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
         border-right: none;
       }
 
       &:nth-child(5) {
-        border-bottom: 1px solid $black;
+        border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
 
-        border-right: 1px solid $black;
+        border-right: 1px solid rgba($color: $black, $alpha: 0.5);
       }
       &:nth-child(6) {
-        border-bottom: 1px solid $black;
+        border-bottom: 1px solid rgba($color: $black, $alpha: 0.5);
 
         border-right: none;
       }
       &:nth-child(7) {
-        border-right: 1px solid $black;
+        border-right: 1px solid rgba($color: $black, $alpha: 0.5);
       }
     }
 

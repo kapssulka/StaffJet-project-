@@ -7,11 +7,10 @@
   background-image: url("./../images/background/processes/processes-bg.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+
   // background
-  @media (max-width: 1440px) {
-    background-size: 100% 100%;
-  }
+
   @media (max-width: 1024px) {
     background-image: none;
   }
@@ -40,6 +39,9 @@
     margin-top: 80px;
 
     margin-left: $margin-left-default;
+    @media (max-width: 1920px) {
+      margin-left: $margin-left-1920;
+    }
     @media (max-width: 1440px) {
       margin-left: $margin-left-1440;
     }

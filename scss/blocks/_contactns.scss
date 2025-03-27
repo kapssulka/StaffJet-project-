@@ -4,11 +4,10 @@
   background-image: url("./../images/background/contacts/contacts-bg.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+
   // background
-  @media (max-width: 1440px) {
-    background-size: 100% 100%;
-  }
+
   @media (max-width: 1024px) {
     background-image: url("./../images/background/contacts/contacts-bg-1024.png");
 
@@ -92,8 +91,11 @@
     max-width: 670px;
     width: 100%;
 
-    margin-left: 390px;
+    margin-left: 513px;
 
+    @media (max-width: 1920px) {
+      margin-left: 26.7vw;
+    }
     @media (max-width: 1440px) {
       margin-left: 23vw;
     }
