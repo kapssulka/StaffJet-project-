@@ -51,6 +51,7 @@ body {
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -62,6 +63,6 @@ main {
   flex: 1 1 auto;
 }
 
-// .header._fixed + main {
-//   padding-top: 110px;
-// }
+.header._fixed + main {
+  padding-top: 110px;
+}

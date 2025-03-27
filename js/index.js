@@ -50,7 +50,6 @@ if (burgerBtn) {
     } else openBurgerNav();
   });
 }
-console.log(burgerNavLinks);
 
 // links
 if (burgerNavLinks.length > 0) {
@@ -94,24 +93,18 @@ let lastScrollTop = window.scrollY;
 
 if (header) {
   window.addEventListener("scroll", function () {
-    // let scrollTop = window.scrollY;
+    let scrollTop = window.scrollY;
 
-    // if (
-    //   scrollTop < lastScrollTop &&
-    //   (scrollTop > 200) & (window.innerWidth < 768)
-    // ) {
-    //   header.classList.add("_fixed");
-    // } else {
-    //   header.classList.remove("_fixed");
-    // }
-
-    // lastScrollTop = scrollTop;
-
-    if (window.scrollY > 200 && window.innerWidth < 768) {
+    if (
+      scrollTop < lastScrollTop &&
+      (scrollTop > 200) & (window.innerWidth < 768)
+    ) {
       header.classList.add("_fixed");
     } else {
       header.classList.remove("_fixed");
     }
+
+    lastScrollTop = scrollTop;
   });
 }
 
