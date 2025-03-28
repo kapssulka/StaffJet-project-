@@ -202,15 +202,13 @@ if (popup) {
   popup.onclick = (e) => {
     e.stopPropagation();
 
-    if (popup === e.target) {
-      popup.classList.remove("_active");
-      setTimeout(() => {
-        popup.style.display = "none";
-      }, 200);
-    }
+    if (popup === e.target) closePopup();
 
-    if (popupButton.contains(e.target)) {
+    if (popupButton.contains(e.target)) closePopup();
+
+    function closePopup() {
       popup.classList.remove("_active");
+      document.body.classList.remove("_hidden");
       setTimeout(() => {
         popup.style.display = "none";
       }, 200);

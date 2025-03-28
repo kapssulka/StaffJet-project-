@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     percent1.classList.remove("_animate");
     percent2.classList.add("_animate");
-  }, 1000);
+  }, 600);
 
   const intervalPreloader = setInterval(() => {
     i++;
@@ -26,14 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         percent2.classList.remove("_animate");
         percent3.classList.add("_animate");
-      }, 1000);
+      }, 600);
     }
     if (i == 2) {
       percent3.classList.add("_animate");
       setTimeout(() => {
         percent3.classList.remove("_animate");
         percent4.classList.add("_animate");
-      }, 1000);
+      }, 600);
     }
 
     if (i == 3) {
@@ -43,20 +43,20 @@ document.addEventListener("DOMContentLoaded", () => {
         percentLast.classList.add("_animate");
 
         clearInterval(intervalPreloader);
-      }, 1600);
+      }, 1200);
 
       setTimeout(() => {
         document.body.classList.remove("_hidden");
-      }, 2000);
+      }, 1600);
 
       setTimeout(() => {
         preloader.classList.add("_close-animate");
-      }, 2200);
+      }, 1800);
 
       setTimeout(() => {
         preloader.classList.remove("_loading");
         preloader.classList.remove("_close-animate");
-      }, 2500);
+      }, 2100);
     }
-  }, 1000);
+  }, 600);
 });

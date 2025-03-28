@@ -42,11 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         popup.style.display = "flex";
         setTimeout(() => {
+          document.body.classList.add("_hidden");
           popup.classList.add("_active");
         }, 0);
 
         form.reset();
         formButton.disabled = true;
+
+        nameValue = "";
+        telValue = "";
+        emailValue = "";
+        checkboxlValue = "";
 
         // ОТПРАВКА ЗАПРОСА НА СЕРВЕР (раскомментировать и указать правильный путь на файл)
         // try {
@@ -58,11 +64,17 @@ document.addEventListener("DOMContentLoaded", () => {
         //   if (response.ok) {
         //     popup.style.display = "flex";
         //     setTimeout(() => {
+        //       document.body.classList.add("_hidden");
         //       popup.classList.add("_active");
         //     }, 0);
 
         //     form.reset();
         //     formButton.disabled = true;
+
+        //     nameValue = "";
+        //     telValue = "";
+        //     emailValue = "";
+        //     checkboxlValue = "";
         //   }
         // } catch (error) {
         //   console.error("Ошибка запроса:", error);
