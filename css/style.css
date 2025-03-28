@@ -3784,7 +3784,7 @@ main {
 @media (max-width: 767px) {
   .preloader__inner {
     right: 40px;
-    bottom: 160px;
+    bottom: 100px;
   }
 }
 .preloader__text-current, .preloader__text-next {

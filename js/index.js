@@ -204,12 +204,16 @@ if (popup) {
 
     if (popup === e.target) {
       popup.classList.remove("_active");
-      popup.style.display = "none";
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 200);
     }
 
     if (popupButton.contains(e.target)) {
       popup.classList.remove("_active");
-      popup.style.display = "none";
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 200);
     }
   };
 }

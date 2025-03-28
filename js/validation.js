@@ -1,7 +1,7 @@
 // VALIDATION FORM
 const form = document.getElementById("js-form");
 const formButtonWrapper = document.getElementById("js-form-btn");
-const formButton = document.querySelector("button");
+const formButton = form.querySelector("button");
 
 window.addEventListener("pageshow", () => {
   document.getElementById("js-form").reset();
@@ -14,14 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = form.querySelector("#email");
     const checkbox = form.querySelector("#privacy_policy");
 
+    const popup = document.getElementById("js-pop-up");
+
     const paternTelEl = document.getElementById("js-tel-pattern");
 
+    // get value
     let nameValue = name.value;
     let telValue = tel.value;
     let emailValue = email.value;
     let checkboxlValue = checkbox.checked;
 
-    formButtonWrapper.addEventListener("click", () => {
+    formButtonWrapper.addEventListener("click", async () => {
       let isValidateName = validation(name, nameValue, "name");
       let isValidateTel = validation(tel, telValue, "tel");
       let isValidateEmail = validation(email, emailValue, "email");
@@ -29,7 +32,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (isValidateName && isValidateTel && isValidateEmail && isChecked) {
         formButton.disabled = false;
-        form.submit();
+
+        const formData = new FormData(form);
+
+        // ЭТОТ КОД МОЖНО УБРАТЬ КОГДА БУДЕТ ПРАВИЛЬНЫЙ ПУТЬ ДЛЯ ОТПРАВКИ fetch
+        for (let pair of formData.entries()) {
+          console.log(pair[0] + ": " + pair[1]);
+        }
+
+        popup.style.display = "flex";
+        setTimeout(() => {
+          popup.classList.add("_active");
+        }, 0);
+
+        form.reset();
+        formButton.disabled = true;
+
+        // ОТПРАВКА ЗАПРОСА НА СЕРВЕР (раскомментировать и указать правильный путь на файл)
+        // try {
+        //   const response = await fetch("server.php", {
+        //     method: "POST",
+        //     body: formData,
+        //   });
+
+        //   if (response.ok) {
+        //     popup.style.display = "flex";
+        //     setTimeout(() => {
+        //       popup.classList.add("_active");
+        //     }, 0);
+
+        //     form.reset();
+        //     formButton.disabled = true;
+        //   }
+        // } catch (error) {
+        //   console.error("Ошибка запроса:", error);
+        // }
       } else formButton.disabled = true;
     });
 
