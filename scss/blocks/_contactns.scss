@@ -188,6 +188,13 @@
 
     background-color: transparent;
 
+    &#tel {
+      color: #787878;
+    }
+    &#tel._filled {
+      color: #000;
+    }
+
     &._textarea {
       resize: none;
 

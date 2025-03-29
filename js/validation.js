@@ -3,10 +3,6 @@ const form = document.getElementById("js-form");
 const formButtonWrapper = document.getElementById("js-form-btn");
 const formButton = form.querySelector("button");
 
-window.addEventListener("pageshow", () => {
-  document.getElementById("js-form").reset();
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   if (form) {
     const name = form.querySelector("#name");
@@ -15,8 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkbox = form.querySelector("#privacy_policy");
 
     const popup = document.getElementById("js-pop-up");
-
-    const paternTelEl = document.getElementById("js-tel-pattern");
 
     // get value
     let nameValue = name.value;
@@ -95,8 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
     tel.addEventListener("blur", (e) => {
       telValue = e.target.value;
 
-      paternTelEl.classList.remove("_focus");
-
       validation(tel, e.target.value, "tel");
     });
 
@@ -110,15 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
       checkboxlValue = e.target.checked;
 
       validation(checkbox, e.target.checked, "checkbox");
-    });
-
-    // показ паттерна
-    tel.addEventListener("focus", (e) => {
-      if (e.target.value.length < 1) paternTelEl.classList.add("_focus");
-    });
-    tel.addEventListener("input", (e) => {
-      if (e.target.value.length > 0) paternTelEl.classList.remove("_focus");
-      else paternTelEl.classList.add("_focus");
     });
 
     // HELPER
@@ -142,15 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (rule === "tel") {
-        const phonePattern =
-          /^\+?\d{1,4}[\s\-]?\(?\d{1,5}\)?[\s\-]?\d{1,5}[\s\-]?\d{1,5}$/;
-
         if (value.length < 2) {
           formButton.disabled = true;
           wrapper.classList.add("_error");
           errorEl.innerText = "Заполните поле";
           return false;
-        } else if (!phonePattern.test(value)) {
+        } else if (input.value.includes("X")) {
           formButton.disabled = true;
           wrapper.classList.add("_error");
           errorEl.innerText = "Заполните поле правильно";

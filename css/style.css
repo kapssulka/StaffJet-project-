@@ -3386,6 +3386,12 @@ main {
   color: #000;
   background-color: transparent;
 }
+.input-form__input#tel {
+  color: #787878;
+}
+.input-form__input#tel._filled {
+  color: #000;
+}
 .input-form__input._textarea {
   resize: none;
   height: 78px;
