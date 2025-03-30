@@ -110,7 +110,6 @@
         </div>
       </div>
     </div>
-
     <div class="wrapper">
       <div id="js-pop-up" class="pop-up">
         <div class="pop-up__inner">
@@ -267,6 +266,7 @@
             </div>
           </nav>
         </div>
+        <div class="fade-in-hiro-header"></div>
       </header>
 
       <main class="main">
@@ -274,8 +274,8 @@
           <div class="staffjet__inner">
             <div class="_container">
               <!-- TITLE BLOCK -->
-              <div class="title-block scroll-section-900">
-                <div class="section-name _h1">
+              <div class="title-block scroll-section-900 fade-in-hiro-title">
+                <div class="section-name _h1 fade-in-hiro-sub-title">
                   <span class="section-name__text">Staffjet</span>
                 </div>
 
@@ -292,23 +292,51 @@
 
               <div class="staffjet__content">
                 <div class="staffjet__content_inner">
-                  <p class="staffjet__content_text-block">
+                  <p class="staffjet__content_text-block fade-in-hiro-text">
                     Обеспечим эффективное закрытие Ваших вакансий за счет нашего
                     проверенного трафика.
                   </p>
                   <!-- BUTTON COMPONENT -->
-                  <a
-                    href="#contacts"
-                    class="button _arrow-animate js-section-scroll-link"
-                  >
-                    <div class="button__text">Связаться</div>
-                    <div class="button__icon">
-                      <img src="./images/icons/arrow.svg" alt="Arrow" />
-                    </div>
-                  </a>
+                  <div class="staffjet__button fade-in-hiro-button">
+                    <a
+                      href="#contacts"
+                      class="button _arrow-animate js-section-scroll-link"
+                    >
+                      <div class="button__text">Связаться</div>
+                      <div class="button__icon">
+                        <img src="./images/icons/arrow.svg" alt="Arrow" />
+                      </div>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset="
+                  ./images/background/hiro-section/hiro-section-bg-mobile.png
+                "
+              />
+              <source
+                media="(max-width: 840px)"
+                srcset="
+                  ./images/background/hiro-section/hiro-section-bg-tablet.png
+                "
+              />
+              <source
+                media="(max-width: 1024px)"
+                srcset="
+                  ./../images/background/hiro-section/hiro-section-bg-1024.png
+                "
+              />
+              <img
+                class="staffjet__bg-img fade-in-hiro-bg"
+                src="./../images/background/hiro-section/hiro-section-bg.png"
+                alt="Фоновое изображение"
+              />
+            </picture>
           </div>
 
           <div class="staffjet__footer _container">
@@ -323,7 +351,7 @@
         <section id="about-us" class="about-us scroll-section">
           <div class="about-us__inner _container">
             <!-- TITLE BLOCK -->
-            <div class="title-block">
+            <div class="title-block test-animate">
               <div class="section-name">
                 <span class="section-name__text">О нас</span>
               </div>
