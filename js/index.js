@@ -35,7 +35,10 @@ function getTime() {
 
 const burgerBtn = document.getElementById("js-burger");
 const burgerNav = document.getElementById("js-burger-nav");
-const burgerNavLinks = document.querySelectorAll("#js-link");
+const burgerNavLinks = document.querySelectorAll(".js-hide-fixed-header");
+
+// для устранения перкрытия блока шапкой при сролле к якорю (снизу страницы вверх)
+let isVisibleFixedHeader = true;
 
 if (burgerBtn) {
   burgerBtn.addEventListener("click", () => {
@@ -56,20 +59,25 @@ if (burgerNavLinks.length > 0) {
   burgerNavLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("a");
 
       const href = link.getAttribute("href");
-
-      removeBurgerNav();
 
       if (typeof href === "string" && href.startsWith("#") && href.length > 1) {
         const targetElement = document.getElementById(href.slice(1)); // Ищем по ID
 
-        if (targetElement) {
-          setTimeout(() => {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-          }, 50);
+        if (!targetElement) {
+          console.warn(`Элемент с ID "${href.slice(1)}" не найден.`);
+          return;
         }
+
+        removeBurgerNav();
+        isVisibleFixedHeader = false;
+
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }, 50);
+
+        setTimeout(() => (isVisibleFixedHeader = true), 2000);
       }
     });
   });
@@ -97,7 +105,9 @@ if (header) {
 
     if (
       scrollTop < lastScrollTop &&
-      (scrollTop > 200) & (window.innerWidth < 768)
+      scrollTop > 200 &&
+      window.innerWidth < 768 &&
+      isVisibleFixedHeader
     ) {
       header.classList.add("_fixed");
     } else {

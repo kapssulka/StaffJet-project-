@@ -454,9 +454,76 @@ main {
   transition: 0.1s ease-in-out;
 }
 
+.cookies {
+  display: none;
+  position: fixed;
+  max-width: 400px;
+  width: 100%;
+  left: 40px;
+  bottom: 60px;
+  z-index: 50;
+  padding: 20px 24px;
+  border-radius: 8px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 600px) {
+  .cookies {
+    left: 20px;
+    bottom: 20px;
+  }
+}
+@media (max-width: 440px) {
+  .cookies {
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: 100%;
+    padding: 20px 24px 42px;
+  }
+}
+.cookies__title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -2%;
+  margin-bottom: 8px;
+}
+.cookies__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: -2%;
+  margin-bottom: 16px;
+}
+.cookies__text span {
+  font-weight: 500;
+  text-decoration: underline;
+}
+.cookies__button {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -2%;
+  height: 52px;
+  padding: 0 24px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #3253ed;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+@media (hover: hover) {
+  .cookies__button {
+    background-color: #1d3c9c;
+  }
+}
+
 .header {
   position: relative;
-  z-index: 10;
+  z-index: 60;
   width: 100%;
 }
 .header._fixed {
@@ -577,7 +644,7 @@ main {
   display: none;
   cursor: pointer;
   position: relative;
-  z-index: 55;
+  z-index: 65;
   width: 65px;
   height: 48px;
   border-radius: 8px;
@@ -685,7 +752,7 @@ main {
   visibility: hidden;
   overflow-y: auto;
   position: fixed;
-  z-index: 50;
+  z-index: 60;
   left: 0;
   top: 0;
   width: 100%;

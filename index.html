@@ -14,6 +14,7 @@
 
     <script src="js/preloader.js" defer></script>
     <script src="js/index.js" defer></script>
+    <script src="js/cookies.js" defer></script>
     <script src="js/validation.js" defer></script>
     <script src="js/phoneMask.js" defer></script>
 
@@ -121,6 +122,14 @@
         </div>
       </div>
 
+      <div id="cookies-banner" class="cookies">
+        <div class="cookies__title">Мы используем cookies 🍪</div>
+        <div class="cookies__text">
+          Продолжая пользоваться сайтом, вы соглашаетесь с нашей
+          <span>политикой обработки данных.</span>
+        </div>
+        <button id="accept-cookies" class="cookies__button">Хорошо</button>
+      </div>
       <header id="js-header" class="header">
         <div class="header__inner _container">
           <img
@@ -176,27 +185,31 @@
             <div class="burger-nav__items">
               <ul class="burger-nav__list">
                 <li>
-                  <a id="js-link" class="burger-nav__link" href="#about-us"
+                  <a
+                    class="burger-nav__link js-hide-fixed-header"
+                    href="#about-us"
                     >О нас <span>(01)</span></a
                   >
                 </li>
                 <li>
-                  <a id="js-link" class="burger-nav__link" href="#agency"
+                  <a
+                    class="burger-nav__link js-hide-fixed-header"
+                    href="#agency"
                     >Рекламное агентство <span>(02)</span></a
                   >
                 </li>
                 <li>
-                  <a id="js-link" class="burger-nav__link" href="#"
+                  <a class="burger-nav__link js-hide-fixed-header" href="#"
                     >WEB-мастерам <span>(03)</span></a
                   >
                 </li>
                 <li>
-                  <a id="js-link" class="burger-nav__link" href="#"
+                  <a class="burger-nav__link js-hide-fixed-header" href="#"
                     >Контактный центр <span>(04)</span></a
                   >
                 </li>
                 <li>
-                  <a id="js-link" class="burger-nav__link" href="#cpa"
+                  <a class="burger-nav__link js-hide-fixed-header" href="#cpa"
                     >CPA-сеть <span>(05)</span></a
                   >
                 </li>
@@ -209,7 +222,9 @@
                   >
                 </li>
                 <li>
-                  <a id="js-link" class="burger-nav__link" href="#contacts"
+                  <a
+                    class="burger-nav__link js-hide-fixed-header"
+                    href="#contacts"
                     >Оставить заявку <span>(07)</span></a
                   >
                 </li>
@@ -1400,22 +1415,32 @@
                   <div class="footer-nav-block__subtitle">Навигация</div>
                   <ul class="footer-nav-block__list">
                     <li>
-                      <a href="#about-us" class="footer-nav-block__link"
+                      <a
+                        href="#about-us"
+                        class="footer-nav-block__link js-hide-fixed-header"
                         >О нас</a
                       >
                     </li>
                     <li>
-                      <a href="#agency" class="footer-nav-block__link"
+                      <a
+                        href="#agency"
+                        class="footer-nav-block__link js-hide-fixed-header"
                         >Рекламное агенство</a
                       >
                     </li>
                     <li>
-                      <a href="#" class="footer-nav-block__link"
+                      <a
+                        href="#"
+                        class="footer-nav-block__link js-hide-fixed-header"
                         >Контактный центр</a
                       >
                     </li>
                     <li>
-                      <a href="#cpa" class="footer-nav-block__link">CPA-сеть</a>
+                      <a
+                        href="#cpa"
+                        class="footer-nav-block__link js-hide-fixed-header"
+                        >CPA-сеть</a
+                      >
                     </li>
                     <li>
                       <a href="#" class="footer-nav-block__link"
@@ -1449,7 +1474,9 @@
                       >
                     </li>
                     <li>
-                      <a href="#contacts" class="footer-nav-block__link"
+                      <a
+                        href="#contacts"
+                        class="footer-nav-block__link js-hide-fixed-header"
                         >Оставить заявку</a
                       >
                     </li>
