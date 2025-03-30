@@ -70,6 +70,10 @@
 
       margin-top: 180px;
     }
+
+    @media (max-height: 850px) {
+      margin-top: 120px;
+    }
     @media (max-width: 840px) {
       margin-top: 120px;
     }
