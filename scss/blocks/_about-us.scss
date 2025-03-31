@@ -6,6 +6,14 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
 
+  .scroll-helper {
+    position: absolute;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: red;
+  }
+
   // background
 
   @media (max-width: 1024px) {
@@ -54,13 +62,15 @@
   }
 
   &__inner {
+    display: flex;
+    flex-direction: column;
   }
 
   &__cards {
     display: flex;
     align-items: center;
     column-gap: 20px;
-
+    align-self: end;
     margin-top: 240px;
 
     @media (max-width: 1200px) {

@@ -1,77 +1,13 @@
-//? ПОЭКРАННЫЙ ПЕРЕХОД
-
-//
-const sectionTitleWith900height = document.querySelectorAll(
-  ".scroll-section-900"
-);
-
-function setScrollSections(items, height) {
-  if (window.innerHeight <= height) {
-    items.forEach((item) => {
-      item.classList.add("scroll-section");
-    });
-  } else {
-    items.forEach((item) => {
-      item.classList.remove("scroll-section");
-    });
-  }
-}
-
-setScrollSections(sectionTitleWith900height, 900);
-
-window.addEventListener("resize", () => {
-  setScrollSections(sectionTitleWith900height, 900);
-});
-
-$(function () {
-  $.scrollify({
-    section: ".scroll-section",
-    scrollSpeed: 600, // Скорость прокрутки (в миллисекундах)
-    easing: "easeOutExpo", // Тип easing для плавности (можно использовать разные: easeInOutCubic, easeOutQuad, и другие)
-    scrollbars: false, // Показывать или скрывать полосы прокрутки
-
-    sectionName: true, // Это поможет идентифицировать секции
-    sectionName: "section-name", // Опцион
-
-    setHeights: false, // Отключает автоматическое изменение высоты секций
-    overflowScroll: true, // Разрешает прокрутку внутри секции, если она не помещается
-
-    afterResize: function () {
-      $.scrollify.update(); // Обновление Scrollify при изменении размера окна
-    },
-
-    interstitialSection: ".background", // Дополнительные секции, которые прокручиваются параллельно
-    touchScroll: true, // Включить поддержку прокрутки для мобильных устройств
-  });
-});
-
-// Обработчик кликов на якорные ссылки (для синхронизации прокрутки)
-$(".js-section-scroll-link").on("click", function (e) {
-  e.preventDefault(); // Отключаем стандартное поведение якоря
-
-  let targetId = $(this).attr("href"); // Получаем ID секции из ссылки
-  let sectionIndex = $(targetId).index(".scroll-section"); // Находим индекс секции в Scrollify
-
-  if (sectionIndex !== -1) {
-    $.scrollify.move(sectionIndex); // Принудительно скроллим к нужной секции
-  }
-});
-
-// GSAP
-
+//? GSAP
 gsap.registerPlugin(ScrollTrigger);
 
-// Найдем элемент для анимации
-
-// FIRST SECTION
+//! HIRO SECTION
 const animateHiroTitle = document.querySelector(".fade-in-hiro-title");
 const animateHiroSunTitle = document.querySelector(".fade-in-hiro-sub-title");
 const animateHiroText = document.querySelector(".fade-in-hiro-text");
 const animateHiroButton = document.querySelector(".fade-in-hiro-button");
 const animateHiroBg = document.querySelector(".fade-in-hiro-bg");
 const animateHiroHeader = document.querySelector(".fade-in-hiro-header");
-
-// Настроим анимацию с использованием ScrollTrigger
 
 animateHiroFadeIn(animateHiroTitle, 3.8, 0.8);
 animateHiroFadeIn(animateHiroSunTitle, 4.3, 0.2, 0, 10);
@@ -84,7 +20,7 @@ function animateHiroFadeIn(
   duration = 1,
   opacity = 0,
   y = 40,
-  start = "top 100%",
+  start = "top 20%",
   trigger = element
 ) {
   gsap.fromTo(
@@ -96,7 +32,7 @@ function animateHiroFadeIn(
       y: 0,
       duration: duration,
       scrollTrigger: {
-        trigger: trigger, // Этот элемент будет триггером
+        trigger: ".staffjet", // Этот элемент будет триггером
         start: start, // Когда верх блока окажется на 80% экрана
         toggleActions: "play none none reverse", // Запуск анимации один раз
 
@@ -138,7 +74,6 @@ gsap.fromTo(
     },
   }
 );
-
 // Анимация для .fade-in-hiro-header
 gsap.fromTo(
   animateHiroHeader,
@@ -166,57 +101,179 @@ gsap.fromTo(
   }
 );
 
-// готовая анимация fadein
-function fadeInElem(elem) {
-  gsap.fromTo(
-    elem,
-    {
-      y: 50,
-      opacity: 0,
+//! ABOUT US SECTION
+
+gsap.fromTo(
+  ".animate-about-us-title",
+  {
+    y: 50,
+    opacity: 0,
+  },
+  {
+    duration: 0.6,
+    y: 0,
+    opacity: 1,
+    scrollTrigger: {
+      trigger: "#about-us", // Этот элемент будет триггером
+      start: "top 30%", // Когда верх блока окажется на 80% экрана
+      toggleActions: "play none none reverse", // Запуск анимации при появлении и возврат при уходе
     },
+  }
+);
+
+const cardsAbout = document.querySelector(".about-us__cards");
+
+let aboutUsTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#about-us", // Блок, который будем анимировать
+    start: "top top", // Когда верх блока достигнет верха экрана
+    end: "+=60%", // Длина анимации — высота экрана
+    pin: true, // Фиксируем блок во время анимации
+    scrub: 1,
+    toggleActions: "play none none reverse",
+  },
+});
+
+// Добавляем анимации в timeline
+aboutUsTimeline.fromTo(
+  cardsAbout,
+  { x: "200vw" },
+  {
+    x: 0,
+    duration: 0.3,
+  }
+);
+
+//! SERVICES SECTION
+
+gsap.fromTo(
+  ".animate-services-title-1",
+  { opacity: 0 },
+  {
+    opacity: 1,
+    duration: 0.6,
+    scrollTrigger: {
+      trigger: ".services",
+      start: "top 10%",
+      toggleActions: "play none none reverse",
+    },
+  }
+);
+gsap.fromTo(
+  ".animate-services-title-2",
+  { opacity: 0.25 },
+  {
+    opacity: 1,
+    duration: 1,
+    delay: 0.6,
+    scrollTrigger: {
+      trigger: ".services",
+      start: "top 10%",
+      toggleActions: "play none none reverse",
+    },
+  }
+);
+gsap.fromTo(
+  ".animate-services-title-3",
+  { opacity: 0.25 },
+  {
+    opacity: 1,
+    duration: 1,
+    delay: 0.9,
+    scrollTrigger: {
+      trigger: ".services",
+      start: "top 10%",
+      toggleActions: "play none none reverse",
+    },
+  }
+);
+gsap.fromTo(
+  ".animate-services-card",
+  { y: 400, opacity: 0 },
+  {
+    y: 0,
+    opacity: 1,
+    duration: 0.3,
+    delay: 1.2,
+    scrollTrigger: {
+      trigger: ".services",
+      start: "top 10%",
+      toggleActions: "play none none reverse",
+    },
+  }
+);
+
+//! PROCESSES SECTION
+
+const timelineProcesses = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".processes__inner",
+    start: "top 40%",
+    toggleActions: "play reverse play reverse",
+  },
+});
+
+timelineProcesses
+  .fromTo(
+    ".animate-processes-title",
+    { opacity: 0, y: 50 },
+    { opacity: 1, y: 0, duration: 1 }
+  )
+  .fromTo(
+    ".animate-processes-text",
+    { opacity: 0, y: 40 },
+    { opacity: 1, y: 0, duration: 1 },
+    "<"
+  )
+  .fromTo(
+    ".animate-processes-button",
+    { opacity: 0, y: 40 },
+    { opacity: 1, y: 0, duration: 1, delay: 0.2 },
+    "<"
+  );
+
+//! CPA SECTION
+
+fadeinSimpleBlock(".animate-cpa-title", ".animate-cpa-content", "#cpa");
+
+//! TEAM SECTION
+fadeinSimpleBlock(".animate-team-title", ".animate-team-content", ".team");
+
+//! CLIENTS SECTION
+fadeinSimpleBlock(
+  ".animate-clients-title",
+  ".animate-clients-content",
+  ".clients"
+);
+
+//? helper for simple blocks animation
+function fadeinSimpleBlock(title, content, triger) {
+  gsap.fromTo(
+    title,
+    { opacity: 0, y: 50 },
     {
-      delay: 0.6,
-      duration: 0.6,
-      y: 0,
       opacity: 1,
+      y: 0,
+      duration: 0.6,
       scrollTrigger: {
-        trigger: elem, // Этот элемент будет триггером
-        start: "top 80%", // Когда верх блока окажется на 80% экрана
-        toggleActions: "play none none none", // Запуск анимации при появлении и возврат при уходе
-        onEnterBack: () => {
-          // Возвращаем элемент к анимации при обратном входе в зону видимости
-          console.log(window.scrollY);
-
-          gsap.fromTo(
-            elem,
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              delay: 0.3,
-              scrollTrigger: { start: "top" },
-            }
-          );
-        },
-        onEnter: () => {
-          // Возвращаем элемент к анимации при обратном входе в зону видимости
-          console.log(window.scrollY);
-
-          gsap.fromTo(
-            elem,
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 0.6, delay: 0.3 }
-          );
-        },
-        onLeaveBack: () => {
-          gsap.to(elem, {
-            opacity: 0,
-            y: 50,
-            duration: 0.6,
-            delay: 0,
-          });
-        },
+        trigger: triger,
+        start: "top 40%",
+        toggleActions: "play none play reverse",
+      },
+    }
+  );
+  gsap.fromTo(
+    content,
+    { opacity: 0, y: 200 },
+    {
+      opacity: 1,
+      y: 0,
+      delay: 0.3,
+      duration: 0.6,
+      scrollTrigger: {
+        trigger: triger,
+        start: "top 40%",
+        toggleActions: "play none play reverse",
       },
     }
   );

@@ -20,15 +20,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
 
-    <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
-
     <script src="js/preloader.js" defer></script>
     <script src="js/index.js" defer></script>
 
-    <script src="js/librarys/jquery.scrollify.js" defer></script>
     <script src="js/animation.js" defer></script>
 
     <script src="js/cookies.js" defer></script>
+
+    <script src="https://unpkg.com/inputmask@5.0.8/dist/inputmask.min.js"></script>
     <script src="js/validation.js" defer></script>
     <script src="js/phoneMask.js" defer></script>
     <title>StaffJet</title>
@@ -351,7 +350,7 @@
         <section id="about-us" class="about-us scroll-section">
           <div class="about-us__inner _container">
             <!-- TITLE BLOCK -->
-            <div class="title-block test-animate">
+            <div class="title-block animate-about-us-title">
               <div class="section-name">
                 <span class="section-name__text">О нас</span>
               </div>
@@ -449,13 +448,16 @@
                   </div>
 
                   <h2 class="section-title">
-                    <span class="section-title__part-1">
-                      <span id="color-opacity">(1)</span>Мы предоставляем</span
+                    <span
+                      class="section-title__part-1 animate-services-title-1"
                     >
-                    <span class="section-title__part-2">
+                      (1) Мы предоставляем</span
+                    >
+                    <span
+                      class="section-title__part-2 animate-services-title-2"
+                    >
                       постоянный поток свежих и уникальных анкет, чтобы Вы
-                      всегда могли найти нужного
-                      <span id="color-opacity">кандидата.</span>
+                      всегда могли найти нужного >кандидата.
                     </span>
                   </h2>
                 </div>
@@ -463,7 +465,7 @@
                 <!-- TITLE BLOCK -->
                 <div class="title-block">
                   <h2 class="section-title">
-                    <span id="color-opacity"
+                    <span class="animate-services-title-3" id="color-opacity"
                       >(2)Предложим анкеты только тех кандидатов, которые
                       заинтересованы в вакансии, в нужном Вам количестве.</span
                     >
@@ -475,7 +477,10 @@
           <div class="services__inner-bottom scroll-section">
             <div class="services__inner-cards _container">
               <!-- CARD -->
-              <div id="js-services-card" class="card-services">
+              <div
+                id="js-services-card"
+                class="card-services animate-services-card"
+              >
                 <div class="card-services__head">
                   <div class="card-services__number">(1)</div>
                   <div class="card-services__button"><span></span></div>
@@ -528,7 +533,7 @@
         <section class="processes">
           <div class="processes__inner _container scroll-section-900">
             <!-- TITLE BLOCK -->
-            <div class="title-block">
+            <div class="title-block animate-processes-title">
               <div class="section-name">
                 <span class="section-name__text">Процессы</span>
               </div>
@@ -547,24 +552,26 @@
             </div>
 
             <div class="processes__content">
-              <p class="processes__content-text">
+              <p class="processes__content-text animate-processes-text">
                 В презентации вы найдете подробности о наших стратегиях,
                 площадках и подходах для максимального охвата.
               </p>
               <!-- BUTTON COMPONENT -->
-              <a
-                href="./downloads/Staffjet.pdf"
-                download
-                class="button _download-animate"
-              >
-                <div class="button__text">Скачать</div>
-                <div class="button__icon">
-                  <img
-                    src="./images/icons/document-download.svg"
-                    alt="Document download"
-                  />
-                </div>
-              </a>
+              <div class="animate-processes-button">
+                <a
+                  href="./downloads/Staffjet.pdf"
+                  download
+                  class="button _download-animate"
+                >
+                  <div class="button__text">Скачать</div>
+                  <div class="button__icon">
+                    <img
+                      src="./images/icons/document-download.svg"
+                      alt="Document download"
+                    />
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -703,7 +710,7 @@
                   <span class="section-name__text">CPA-сеть</span>
                 </div>
 
-                <h2 class="section-title">
+                <h2 class="section-title animate-cpa-title">
                   <span class="section-title__part-1"
                     >Вы получаете <span id="color-blue">валидные</span>
                   </span>
@@ -717,7 +724,7 @@
             </div>
           </div>
           <div class="cpa__content">
-            <div class="cpa-grid _container">
+            <div class="cpa-grid _container animate-cpa-content">
               <!-- ITEM 1-->
               <div class="cpa-grid__item">
                 <div class="cpa-grid__item-icon">
@@ -953,7 +960,7 @@
                 </span>
               </div>
 
-              <div class="team__title-block">
+              <div class="team__title-block animate-team-title">
                 <h2 class="section-title">
                   <span class="section-title__part-1">Наша команда </span>
                   <span class="section-title__part-2">
@@ -974,7 +981,7 @@
           </div>
 
           <div class="team__inner _container">
-            <div class="team__content scroll-section">
+            <div class="team__content scroll-section animate-team-content">
               <!-- ITEM -->
               <div class="team-item">
                 <div class="team-item__left">
@@ -1075,7 +1082,7 @@
                 <span class="section-name__text">Наши клиенты</span>
               </div>
 
-              <h2 class="section-title">
+              <h2 class="section-title animate-clients-title">
                 <span class="section-title__part-1"
                   ><span id="color-orange">80%</span> клиентов Staffjet</span
                 >
@@ -1089,7 +1096,7 @@
           </div>
 
           <div class="clients__inner _container scroll-section-900">
-            <div class="clients__grid">
+            <div class="clients__grid animate-clients-content">
               <!-- ITEM -->
               <div class="clients__grid-item">
                 <img
