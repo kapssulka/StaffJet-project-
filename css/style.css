@@ -2019,9 +2019,30 @@ main {
   }
 }
 
+.agency-accordion {
+  max-width: 785px;
+  width: 100%;
+  height: 1060px;
+}
+@media (max-width: 1440px) {
+  .agency-accordion {
+    width: 54.51vw;
+  }
+}
+@media (max-width: 840px) {
+  .agency-accordion {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .agency-accordion {
+    width: 100%;
+    max-width: 100%;
+  }
+}
 .agency-accordion__item {
   cursor: pointer;
-  position: relative;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2039,25 +2060,34 @@ main {
   -webkit-box-shadow: 4px -15px 34px 0px rgba(179, 179, 179, 0.1019607843), 15px -60px 62px 0px rgba(179, 179, 179, 0.0901960784), 34px -135px 84px 0px rgba(179, 179, 179, 0.0509803922), 60px -241px 99px 0px rgba(179, 179, 179, 0.0117647059), 94px -376px 109px 0px rgba(179, 179, 179, 0);
           box-shadow: 4px -15px 34px 0px rgba(179, 179, 179, 0.1019607843), 15px -60px 62px 0px rgba(179, 179, 179, 0.0901960784), 34px -135px 84px 0px rgba(179, 179, 179, 0.0509803922), 60px -241px 99px 0px rgba(179, 179, 179, 0.0117647059), 94px -376px 109px 0px rgba(179, 179, 179, 0);
   border-radius: 8px;
-  overflow: hidden;
-  height: 120px;
   -webkit-transition: height 0.2s linear;
   transition: height 0.2s linear;
-  will-change: height;
+  height: 340px;
+}
+.agency-accordion__item:not(:last-child) {
+  margin-bottom: 30px;
+}
+.agency-accordion__item:nth-child(2) {
+  top: 370px;
+}
+.agency-accordion__item:nth-child(3) {
+  bottom: -340px;
+}
+.agency-accordion__item:nth-child(4) {
+  bottom: -340px;
+}
+.agency-accordion__item:nth-child(5) {
+  bottom: -340px;
+}
+.agency-accordion__item:nth-child(6) {
+  bottom: -340px;
+}
+.agency-accordion__item:nth-child(7) {
+  bottom: -340px;
 }
 .agency-accordion__item:first-child {
   -webkit-box-shadow: none;
           box-shadow: none;
-}
-.agency-accordion__item._active {
-  height: 340px;
-}
-.agency-accordion__item._active .agency-accordion__item-text {
-  -webkit-animation: openAccordion 0.2s ease-in-out forwards;
-          animation: openAccordion 0.2s ease-in-out forwards;
-}
-.agency-accordion__item._active .agency-accordion__item-buttom {
-  opacity: 1;
 }
 @media (max-width: 1440px) {
   .agency-accordion__item {
@@ -2123,7 +2153,6 @@ main {
   font-size: 28px;
   line-height: 130%;
   letter-spacing: -2%;
-  opacity: 0;
 }
 .agency-accordion__item-text #color-blue {
   color: #3253ed;

@@ -154,7 +154,7 @@ gsap.fromTo(
     duration: 0.6,
     scrollTrigger: {
       trigger: ".services",
-      start: "top 10%",
+      start: "top 20%",
       toggleActions: "play none none reverse",
     },
   }
@@ -168,7 +168,7 @@ gsap.fromTo(
     delay: 0.6,
     scrollTrigger: {
       trigger: ".services",
-      start: "top 10%",
+      start: "top 20%",
       toggleActions: "play none none reverse",
     },
   }
@@ -182,7 +182,7 @@ gsap.fromTo(
     delay: 0.9,
     scrollTrigger: {
       trigger: ".services",
-      start: "top 10%",
+      start: "top 20%",
       toggleActions: "play none none reverse",
     },
   }
@@ -197,7 +197,7 @@ gsap.fromTo(
     delay: 1.2,
     scrollTrigger: {
       trigger: ".services",
-      start: "top 10%",
+      start: "top 20%",
       toggleActions: "play none none reverse",
     },
   }
@@ -232,6 +232,31 @@ timelineProcesses
     "<"
   );
 
+//! AGENCY SECTION
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".test-a", // Контейнер с элементами
+    start: "bottom top",
+    end: "+=200%", // Длина анимации — высота экрана
+    toggleActions: "play none none reverse",
+    pin: "#agency",
+    scrub: 1,
+    onEnter: () => console.log("🔥 Анимация началась!"),
+    onLeave: () => console.log("✅ Анимация закончилась!"),
+  },
+});
+
+gsap.utils.toArray(".animate-agency-card").forEach((item, index) => {
+  tl.fromTo(
+    item,
+    { top: index === 0 ? 340 + 30 + 366 : "200vh", y: 0 },
+    {
+      top: 120 * (index + 1) + 366,
+      duration: 0.6,
+    },
+    index * 1 // Время появления (аналог `stagger`)
+  );
+});
 //! CPA SECTION
 
 fadeinSimpleBlock(".animate-cpa-title", ".animate-cpa-content", "#cpa");

@@ -118,14 +118,64 @@
 }
 
 .agency-accordion {
+  // background-color: red;
+  // position: relative;
+  max-width: 785px;
+  width: 100%;
+  height: 1060px;
+
+  @media (max-width: 1440px) {
+    width: 54.51vw;
+  }
+
+  @media (max-width: 840px) {
+    width: 100%;
+  }
+  @media (max-width: 767px) {
+    width: 100%;
+    max-width: 100%;
+  }
+
   &__item {
     cursor: pointer;
-    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    position: absolute;
+
+    &:nth-child(1) {
+    }
+    &:nth-child(2) {
+      top: (340px + 30px);
+    }
+    &:nth-child(3) {
+      // top: calc((340px + 30px) * 2);
+      bottom: -340px;
+    }
+    &:nth-child(4) {
+      // top: calc((340px + 30px) * 3);
+      bottom: -340px;
+    }
+    &:nth-child(5) {
+      // top: calc((340px + 30px) * 4);
+      bottom: -340px;
+    }
+    &:nth-child(6) {
+      // top: calc((340px + 30px) * 5);
+      bottom: -340px;
+    }
+    &:nth-child(7) {
+      // top: calc((340px + 30px) * 6);
+      bottom: -340px;
+    }
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 785px;
+    // width: 100%;
 
     height: 340px;
     padding: 32px 20px;
@@ -142,25 +192,6 @@
 
     border-radius: 8px;
 
-    overflow: hidden;
-    height: 120px;
-
-    transition: height 0.2s linear;
-
-    will-change: height;
-
-    &._active {
-      height: 340px;
-    }
-    &._active .agency-accordion__item-text {
-      animation: openAccordion 0.2s ease-in-out forwards;
-    }
-
-    &._active {
-      .agency-accordion__item-buttom {
-        opacity: 1;
-      }
-    }
     @media (max-width: 1440px) {
       width: 54.51vw;
     }
@@ -172,6 +203,37 @@
       width: 100%;
       max-width: 100%;
     }
+
+    // overflow: hidden;
+    // height: 120px;
+
+    transition: height 0.2s linear;
+
+    // will-change: height;
+    height: 340px;
+
+    // &._active {
+    // }
+    // &._active .agency-accordion__item-text {
+    //   animation: openAccordion 0.2s ease-in-out forwards;
+    // }
+
+    // &._active {
+    //   .agency-accordion__item-buttom {
+    //     opacity: 1;
+    //   }
+    // }
+    // @media (max-width: 1440px) {
+    //   width: 54.51vw;
+    // }
+
+    // @media (max-width: 840px) {
+    //   width: 100%;
+    // }
+    // @media (max-width: 767px) {
+    //   width: 100%;
+    //   max-width: 100%;
+    // }
     @media (max-width: 600px) {
       height: 80px;
 
@@ -225,7 +287,7 @@
     font-size: 28px;
     line-height: 130%;
     letter-spacing: -2%;
-    opacity: 0;
+    // opacity: 0;
 
     #color-blue {
       color: $blue;
