@@ -233,33 +233,205 @@ timelineProcesses
   );
 
 //! AGENCY SECTION
-let tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".test-a", // Контейнер с элементами
-    start: "bottom top",
-    end: "+=200%", // Длина анимации — высота экрана
-    toggleActions: "play none none reverse",
-    pin: "#agency",
-    scrub: 1,
-    onEnter: () => console.log("🔥 Анимация началась!"),
-    onLeave: () => console.log("✅ Анимация закончилась!"),
-  },
+
+// let timelineAgencyCard = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".test-a", // Контейнер с элементами
+//     start: "bottom top",
+//     end: "+=200%", // Длина анимации — высота экрана
+//     toggleActions: "play none none reverse",
+//     pin: "#agency",
+//     scrub: 1,
+//   },
+// });
+
+// gsap.utils.toArray(".animate-agency-card").forEach((item, index) => {
+//   timelineAgencyCard.fromTo(
+//     item,
+//     { top: index === 0 ? 340 + 30 + 366 : "200vh", y: 0 },
+//     {
+//       top: 80 * (index + 1) + 366,
+//       duration: 0.6,
+//     },
+//     index * 1 // Время появления (аналог `stagger`)
+//   );
+// });
+
+let isAnimateAgencyCard = true;
+let timelineAgencyCard; // Переменная для хранения timeline
+let agencyCards = gsap.utils.toArray(".animate-agency-card"); // Собирам все карточки сразу
+
+// Функция для сброса стилей элементов
+function resetCardStyles() {
+  agencyCards.forEach((item) => {
+    gsap.set(item, { clearProps: "all" }); // Убираем все изменения стилей, сделанные через GSAP
+  });
+}
+
+// Функция для создания анимации
+function createAnimation() {
+  timelineAgencyCard = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".trigger-agency-card-animate", // Контейнер с элементами
+      start: "bottom top",
+      end: "+=200%", // Длина анимации — высота экрана
+      toggleActions: "play none none reverse",
+      pin: "#agency",
+      scrub: 1,
+    },
+  });
+
+  agencyCards.forEach((item, index) => {
+    timelineAgencyCard.fromTo(
+      item,
+      { top: index === 0 ? 340 + 30 + 366 : "200vh", y: 0 },
+      {
+        top: 80 * (index + 1) + 366,
+        duration: 0.6,
+      },
+      index * 1 // Время появления (аналог `stagger`)
+    );
+  });
+}
+
+// Обновление анимации при изменении размера окна
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 1024) {
+    // Если анимация была создана, убираем её
+    if (timelineAgencyCard) {
+      timelineAgencyCard.kill(); // Убираем старую анимацию
+      timelineAgencyCard = null; // Очищаем переменную
+    }
+
+    // Сбрасываем все стили, установленные через GSAP
+
+    resetCardStyles();
+
+    // Отключаем флаг анимации для мобильных устройств
+    isAnimateAgencyCard = false;
+  } else {
+    isAnimateAgencyCard = true;
+
+    // Если анимация ещё не создана, создаём её
+    if (!timelineAgencyCard) {
+      createAnimation(); // Функция для создания анимации
+    } else {
+      // Если анимация уже существует, обновляем её
+      ScrollTrigger.refresh(); // Обновляем ScrollTrigger, чтобы корректно перезапустилась анимация
+    }
+  }
 });
 
-gsap.utils.toArray(".animate-agency-card").forEach((item, index) => {
-  tl.fromTo(
-    item,
-    { top: index === 0 ? 340 + 30 + 366 : "200vh", y: 0 },
-    {
-      top: 120 * (index + 1) + 366,
-      duration: 0.6,
-    },
-    index * 1 // Время появления (аналог `stagger`)
-  );
-});
+// Запуск анимации сразу, если размер страницы больше 1024px
+if (window.innerWidth > 1024 && isAnimateAgencyCard) {
+  createAnimation();
+}
+
 //! CPA SECTION
 
 fadeinSimpleBlock(".animate-cpa-title", ".animate-cpa-content", "#cpa");
+
+//! CPA-DATA SECTION
+
+if (window.innerWidth > 1020) {
+  gsap.fromTo(
+    ".animate-cpa-data-card-1",
+    { y: "100%" },
+    {
+      y: 0,
+      duration: 0.6,
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: ".cpa-data",
+        start: "top 20%",
+        toggleActions: "play none none none",
+      },
+    }
+  );
+  gsap.fromTo(
+    ".animate-cpa-data-card-2",
+    { y: "100%" },
+    {
+      y: 0,
+      duration: 0.6,
+      delay: 0.3,
+      scrollTrigger: {
+        trigger: ".cpa-data",
+        start: "top 20%",
+        toggleActions: "play none none none",
+      },
+    }
+  );
+  gsap.fromTo(
+    ".animate-cpa-data-card-3",
+    { y: "100%" },
+    {
+      y: 0,
+      duration: 0.6,
+      delay: 0.4,
+      scrollTrigger: {
+        trigger: ".cpa-data",
+        start: "top 20%",
+        toggleActions: "play none none none",
+      },
+    }
+  );
+  gsap.fromTo(
+    ".animate-cpa-data-card-4",
+    { y: "100%" },
+    {
+      y: 0,
+      duration: 0.6,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: ".cpa-data",
+        start: "top 20%",
+        toggleActions: "play none none none",
+      },
+    }
+  );
+
+  gsap.fromTo(
+    ".animate-cpa-data-title",
+    {
+      y: 50,
+      opacity: 0,
+    },
+    {
+      duration: 0.6,
+      y: 0,
+      opacity: 1,
+      scrollTrigger: {
+        trigger: ".cpa-data", // Этот элемент будет триггером
+        start: "top 30%", // Когда верх блока окажется на 80% экрана
+        toggleActions: "play none none none", // Запуск анимации при появлении и возврат при уходе
+      },
+    }
+  );
+}
+
+// cpaDataCards.forEach((item, index) => {
+//   let heightPercent;
+
+//   if (index == 0) heightPercent = "70%";
+
+//   if (index == 1) heightPercent = "80%";
+//   if (index == 2) heightPercent = "90%";
+
+//   if (index == 3) heightPercent = "100%";
+
+//   timelineCPAData.fromTo(
+//     item,
+//     { height: 0 },
+//     {
+//       height: heightPercent,
+//       duration: 0.6,
+//     }
+//     // index * 1 // Время появления (аналог `stagger`)
+//   );
+// });
+
+// animate-cpa-data-card
 
 //! TEAM SECTION
 fadeinSimpleBlock(".animate-team-title", ".animate-team-content", ".team");

@@ -2040,6 +2040,11 @@ main {
     max-width: 100%;
   }
 }
+@media (max-width: 1024px) {
+  .agency-accordion {
+    height: auto;
+  }
+}
 .agency-accordion__item {
   cursor: pointer;
   position: absolute;
@@ -2060,12 +2065,7 @@ main {
   -webkit-box-shadow: 4px -15px 34px 0px rgba(179, 179, 179, 0.1019607843), 15px -60px 62px 0px rgba(179, 179, 179, 0.0901960784), 34px -135px 84px 0px rgba(179, 179, 179, 0.0509803922), 60px -241px 99px 0px rgba(179, 179, 179, 0.0117647059), 94px -376px 109px 0px rgba(179, 179, 179, 0);
           box-shadow: 4px -15px 34px 0px rgba(179, 179, 179, 0.1019607843), 15px -60px 62px 0px rgba(179, 179, 179, 0.0901960784), 34px -135px 84px 0px rgba(179, 179, 179, 0.0509803922), 60px -241px 99px 0px rgba(179, 179, 179, 0.0117647059), 94px -376px 109px 0px rgba(179, 179, 179, 0);
   border-radius: 8px;
-  -webkit-transition: height 0.2s linear;
-  transition: height 0.2s linear;
   height: 340px;
-}
-.agency-accordion__item:not(:last-child) {
-  margin-bottom: 30px;
 }
 .agency-accordion__item:nth-child(2) {
   top: 370px;
@@ -2103,6 +2103,43 @@ main {
   .agency-accordion__item {
     width: 100%;
     max-width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .agency-accordion__item {
+    position: relative;
+    overflow: hidden;
+    height: 120px;
+    -webkit-transition: height 0.2s linear;
+    transition: height 0.2s linear;
+  }
+  .agency-accordion__item._active {
+    height: 340px;
+  }
+  .agency-accordion__item._active .agency-accordion__item-text {
+    -webkit-animation: openAccordion 0.2s ease-in-out forwards;
+            animation: openAccordion 0.2s ease-in-out forwards;
+  }
+  .agency-accordion__item._active .agency-accordion__item-buttom {
+    opacity: 1;
+  }
+  .agency-accordion__item:nth-child(2) {
+    top: auto;
+  }
+  .agency-accordion__item:nth-child(3) {
+    bottom: auto;
+  }
+  .agency-accordion__item:nth-child(4) {
+    bottom: auto;
+  }
+  .agency-accordion__item:nth-child(5) {
+    bottom: auto;
+  }
+  .agency-accordion__item:nth-child(6) {
+    bottom: auto;
+  }
+  .agency-accordion__item:nth-child(7) {
+    bottom: auto;
   }
 }
 @media (max-width: 600px) {
@@ -2556,6 +2593,7 @@ main {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
+  overflow: hidden;
   -webkit-transform: translateY(38px);
           transform: translateY(38px);
 }

@@ -153,19 +153,20 @@ if (servicesCards.length > 0) {
 
 // ACCORDION
 
-const accordionItems = document.querySelectorAll("#js-accordion-item");
+const accordionItems = document.querySelectorAll(".agency-accordion__item");
 
-if (accordionItems.length > 0) {
-  accordionItems.forEach((item, _, array) => {
-    item.addEventListener("click", () => {
-      if (item.classList.contains("_active")) return;
+if (window.innerWidth <= 1024) {
+  if (accordionItems.length > 0) {
+    accordionItems.forEach((item, _, array) => {
+      item.addEventListener("click", () => {
+        if (item.classList.contains("_active")) return;
 
-      array.forEach((item) => item.classList.remove("_active"));
-      item.classList.add("_active");
+        array.forEach((item) => item.classList.remove("_active"));
+        item.classList.add("_active");
+      });
     });
-  });
+  }
 }
-
 // DATA SWITCH
 
 const buttonFoodRetail = document.getElementById("js-food-retail-button");
@@ -186,6 +187,46 @@ if (buttonFoodRetail) {
     dataNonFoodRetail.forEach((item) => item.classList.remove("_active"));
 
     dataFoodRetail.forEach((item) => item.classList.add("_active"));
+
+    // анимация при смене
+    if (window.innerWidth > 1020) {
+      gsap.fromTo(
+        ".animate-cpa-data-card-1",
+        { y: "100%" },
+        {
+          y: 0,
+          duration: 0.6,
+          delay: 0.2,
+        }
+      );
+      gsap.fromTo(
+        ".animate-cpa-data-card-2",
+        { y: "100%" },
+        {
+          y: 0,
+          duration: 0.6,
+          delay: 0.3,
+        }
+      );
+      gsap.fromTo(
+        ".animate-cpa-data-card-3",
+        { y: "100%" },
+        {
+          y: 0,
+          duration: 0.6,
+          delay: 0.4,
+        }
+      );
+      gsap.fromTo(
+        ".animate-cpa-data-card-4",
+        { y: "100%" },
+        {
+          y: 0,
+          duration: 0.6,
+          delay: 0.5,
+        }
+      );
+    }
   });
 }
 
@@ -199,6 +240,46 @@ if (buttonNonFoodRetail) {
     dataFoodRetail.forEach((item) => item.classList.remove("_active"));
 
     dataNonFoodRetail.forEach((item) => item.classList.add("_active"));
+
+    // анимация при смене
+    if (window.innerWidth > 1020) {
+      gsap.fromTo(
+        ".animate-cpa-data-card-1",
+        { y: "100%" },
+        {
+          y: 0,
+          duration: 0.6,
+          delay: 0.2,
+        }
+      );
+      gsap.fromTo(
+        ".animate-cpa-data-card-2",
+        { y: "100%" },
+        {
+          y: 0,
+          duration: 0.6,
+          delay: 0.3,
+        }
+      );
+      gsap.fromTo(
+        ".animate-cpa-data-card-3",
+        { y: "100%" },
+        {
+          y: 0,
+          duration: 0.6,
+          delay: 0.4,
+        }
+      );
+      gsap.fromTo(
+        ".animate-cpa-data-card-4",
+        { y: "100%" },
+        {
+          y: 0,
+          duration: 0.6,
+          delay: 0.5,
+        }
+      );
+    }
   });
 }
 

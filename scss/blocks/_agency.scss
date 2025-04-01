@@ -136,38 +136,34 @@
     max-width: 100%;
   }
 
+  @media (max-width: 1024px) {
+    height: auto;
+  }
+
   &__item {
     cursor: pointer;
 
-    &:not(:last-child) {
-      margin-bottom: 30px;
+    @media (min-width: 1023px) {
     }
 
     position: absolute;
 
-    &:nth-child(1) {
-    }
     &:nth-child(2) {
       top: (340px + 30px);
     }
     &:nth-child(3) {
-      // top: calc((340px + 30px) * 2);
       bottom: -340px;
     }
     &:nth-child(4) {
-      // top: calc((340px + 30px) * 3);
       bottom: -340px;
     }
     &:nth-child(5) {
-      // top: calc((340px + 30px) * 4);
       bottom: -340px;
     }
     &:nth-child(6) {
-      // top: calc((340px + 30px) * 5);
       bottom: -340px;
     }
     &:nth-child(7) {
-      // top: calc((340px + 30px) * 6);
       bottom: -340px;
     }
 
@@ -204,25 +200,47 @@
       max-width: 100%;
     }
 
-    // overflow: hidden;
-    // height: 120px;
+    @media (max-width: 1024px) {
+      position: relative;
+      overflow: hidden;
+      height: 120px;
+      transition: height 0.2s linear;
+      &._active {
+        height: 340px;
+      }
+      &._active .agency-accordion__item-text {
+        animation: openAccordion 0.2s ease-in-out forwards;
+      }
 
-    transition: height 0.2s linear;
+      &._active {
+        .agency-accordion__item-buttom {
+          opacity: 1;
+        }
+      }
+
+      &:nth-child(2) {
+        top: auto;
+      }
+      &:nth-child(3) {
+        bottom: auto;
+      }
+      &:nth-child(4) {
+        bottom: auto;
+      }
+      &:nth-child(5) {
+        bottom: auto;
+      }
+      &:nth-child(6) {
+        bottom: auto;
+      }
+      &:nth-child(7) {
+        bottom: auto;
+      }
+    }
 
     // will-change: height;
     height: 340px;
 
-    // &._active {
-    // }
-    // &._active .agency-accordion__item-text {
-    //   animation: openAccordion 0.2s ease-in-out forwards;
-    // }
-
-    // &._active {
-    //   .agency-accordion__item-buttom {
-    //     opacity: 1;
-    //   }
-    // }
     // @media (max-width: 1440px) {
     //   width: 54.51vw;
     // }
