@@ -74,34 +74,72 @@ gsap.fromTo(
     },
   }
 );
-// Анимация для .fade-in-hiro-header
-gsap.fromTo(
-  animateHiroHeader,
-  { height: 130 }, // Начальные значения
-  {
-    height: 0,
-    delay: 4,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: animateHiroHeader,
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-      onEnterBack: () => {
-        // Анимация для обратного входа
 
-        gsap.fromTo(
-          animateHiroHeader,
-          {
-            height: 130,
-          },
-          { height: 0, duration: 0.8, delay: 0.3 }
-        );
+let mmHiroSection = gsap.matchMedia();
+
+mmHiroSection.add("(min-width: 768px)", () => {
+  // Анимация для .fade-in-hiro-header
+  let animation = gsap.fromTo(
+    animateHiroHeader,
+    { height: 130 }, // Начальные значения
+    {
+      height: 0,
+      delay: 4,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: animateHiroHeader,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+        onEnterBack: () => {
+          // Анимация для обратного входа
+          gsap.fromTo(
+            animateHiroHeader,
+            { height: 130 },
+            { height: 0, duration: 0.8, delay: 0.3 }
+          );
+        },
       },
-    },
-  }
-);
+    }
+  );
+
+  return () => {
+    animation.kill(); // Останавливаем анимацию
+    gsap.set(animateHiroHeader, { clearProps: "all" }); // Убираем все инлайн-стили
+  };
+});
 
 //! ABOUT US SECTION
+
+let mmAboutUs = gsap.matchMedia();
+
+mmAboutUs.add("(min-width: 1201px)", () => {
+  // cards
+  const cardsAbout = document.querySelector(".about-us__cards");
+
+  let aboutUsTimeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#about-us", // Блок, который будем анимировать
+      start: "top top", // Когда верх блока достигнет верха экрана
+      end: "+=100%", // Длина анимации — высота экрана
+      pin: true, // Фиксируем блок во время анимации
+      scrub: 5,
+      toggleActions: "play none none reverse",
+    },
+  });
+
+  aboutUsTimeline.fromTo(
+    cardsAbout,
+    { x: "200vw" },
+    {
+      x: 0,
+      duration: 0.3,
+    }
+  );
+
+  return () => {
+    aboutUsTimeline.revert(); // Очищает GSAP и ScrollTrigger
+  };
+});
 
 gsap.fromTo(
   ".animate-about-us-title",
@@ -120,88 +158,125 @@ gsap.fromTo(
     },
   }
 );
-
-const cardsAbout = document.querySelector(".about-us__cards");
-
-let aboutUsTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#about-us", // Блок, который будем анимировать
-    start: "top top", // Когда верх блока достигнет верха экрана
-    end: "+=60%", // Длина анимации — высота экрана
-    pin: true, // Фиксируем блок во время анимации
-    scrub: 1,
-    toggleActions: "play none none reverse",
-  },
-});
-
-// Добавляем анимации в timeline
-aboutUsTimeline.fromTo(
-  cardsAbout,
-  { x: "200vw" },
+// bg
+gsap.fromTo(
+  ".fade-in-about-bg",
   {
-    x: 0,
-    duration: 0.3,
+    opacity: 0,
+    scale: 0.8,
+  },
+  {
+    opacity: 1,
+
+    scale: 1,
+    duration: 0.6,
+    scrollTrigger: {
+      trigger: "#about-us", // Этот элемент будет триггером
+      start: "top 30%", // Когда верх блока окажется на 80% экрана
+      toggleActions: "play none none reverse", // Запуск анимации при появлении и возврат при уходе
+    },
   }
 );
 
 //! SERVICES SECTION
 
-gsap.fromTo(
+function wrapTextInSpans(elementId) {
+  const element = document.querySelector(elementId);
+
+  const text = element.innerText;
+
+  const wrappedText = text
+    .split("")
+    .map((char) => `<span>${char}</span>`)
+    .join("");
+
+  element.innerHTML = wrappedText;
+}
+function animateText(textElem1, textElem2, textElem3, delay) {
+  const spans = document.querySelectorAll(`${textElem1} span`);
+  const spans2 = document.querySelectorAll(`${textElem2} span`);
+  const spans3 = document.querySelectorAll(`${textElem3} span`);
+
+  const timelineServicesTitle = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".services",
+      start: "top top",
+      toggleActions: "play none none reverse",
+      pin: true,
+      scrub: 1,
+    },
+  });
+
+  // Анимация каждого <span> по очереди
+  timelineServicesTitle
+    .fromTo(
+      spans,
+      { opacity: 0.25 }, // Начальная прозрачность
+      {
+        opacity: 1, // Конечная прозрачность
+        duration: 0.2, // Длительность анимации
+        delay,
+        stagger: 0.01, // Задержка между анимациями каждого символа
+      }
+    )
+    .fromTo(
+      spans2,
+      { opacity: 0.25 }, // Начальная прозрачность
+      {
+        opacity: 1, // Конечная прозрачность
+        duration: 0.2, // Длительность анимации
+        delay,
+        stagger: 0.01, // Задержка между анимациями каждого символа
+      }
+    )
+    .fromTo(
+      spans3,
+      { opacity: 0.25 }, // Начальная прозрачность
+      {
+        opacity: 1, // Конечная прозрачность
+        duration: 0.2, // Длительность анимации
+        delay,
+        stagger: 0.01, // Задержка между анимациями каждого символа
+      }
+    )
+    .fromTo(
+      ".animate-services-card",
+      { y: 400, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+      }
+    );
+}
+
+// Применяем функцию к элементу с ID "text-container"
+wrapTextInSpans(".animate-services-title-1");
+wrapTextInSpans(".animate-services-title-2");
+wrapTextInSpans(".animate-services-title-3");
+
+animateText(
   ".animate-services-title-1",
-  { opacity: 0 },
-  {
-    opacity: 1,
-    duration: 0.6,
-    scrollTrigger: {
-      trigger: ".services",
-      start: "top 20%",
-      toggleActions: "play none none reverse",
-    },
-  }
-);
-gsap.fromTo(
   ".animate-services-title-2",
-  { opacity: 0.25 },
-  {
-    opacity: 1,
-    duration: 1,
-    delay: 0.6,
-    scrollTrigger: {
-      trigger: ".services",
-      start: "top 20%",
-      toggleActions: "play none none reverse",
-    },
-  }
+  ".animate-services-title-3"
 );
-gsap.fromTo(
-  ".animate-services-title-3",
-  { opacity: 0.25 },
-  {
-    opacity: 1,
-    duration: 1,
-    delay: 0.9,
-    scrollTrigger: {
-      trigger: ".services",
-      start: "top 20%",
-      toggleActions: "play none none reverse",
-    },
-  }
-);
-gsap.fromTo(
-  ".animate-services-card",
-  { y: 400, opacity: 0 },
-  {
-    y: 0,
-    opacity: 1,
-    duration: 0.3,
-    delay: 1.2,
-    scrollTrigger: {
-      trigger: ".services",
-      start: "top 20%",
-      toggleActions: "play none none reverse",
-    },
-  }
-);
+
+// card
+// gsap.fromTo(
+//   ".animate-services-card",
+//   { y: 400, opacity: 0 },
+//   {
+//     y: 0,
+//     opacity: 1,
+//     duration: 0.3,
+//     delay: 0.9,
+//     scrollTrigger: {
+//       trigger: ".services",
+//       start: "top top",
+//       toggleActions: "play none none reverse",
+//     },
+//   }
+// );
 
 //! PROCESSES SECTION
 
@@ -263,6 +338,22 @@ mmAgency.add("(min-width: 1025px)", () => {
     timelineAgencyCard.revert(); // Очищает GSAP и ScrollTrigger
   };
 });
+
+gsap.fromTo(
+  ".animate-agency-text",
+  { y: 40, opacity: 0 },
+  {
+    y: 0,
+    opacity: 1,
+    delay: 0.6,
+    duration: 0.6,
+    scrollTrigger: {
+      trigger: "#agency",
+      start: "top 20%",
+      toggleActions: "play none play reverse",
+    },
+  }
+);
 
 //! CPA SECTION
 
@@ -348,11 +439,35 @@ if (window.innerWidth > 1020) {
 }
 
 //! TEAM SECTION
-fadeinSimpleBlock(
+
+gsap.fromTo(
   ".animate-team-title",
+  { opacity: 0, y: 50 },
+  {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    scrollTrigger: {
+      trigger: ".animate-team-content",
+      start: "top 20%",
+      toggleActions: "play none play reverse",
+    },
+  }
+);
+gsap.fromTo(
   ".animate-team-content",
-  ".trigger-team",
-  "top top"
+  { opacity: 0, y: 200 },
+  {
+    opacity: 1,
+    y: 0,
+    delay: 0.3,
+    duration: 0.6,
+    scrollTrigger: {
+      trigger: ".animate-team-content",
+      start: "top 20%",
+      toggleActions: "play none play reverse",
+    },
+  }
 );
 
 //! CALL CENTER SECTION
@@ -365,7 +480,7 @@ let timelineCallCenter = gsap.timeline({
     start: "bottom top",
     end: "+=100%",
     pin: ".call-center",
-    scrub: 3,
+    scrub: 5,
   },
 });
 
@@ -429,26 +544,51 @@ function fadeinSimpleBlock(title, content, triger, start = "top 40%") {
         trigger: triger,
         start: start,
         toggleActions: "play none play reverse",
-        onEnter: () => {
-          // Используем onEnter для того, чтобы событие сработало при старте анимации
-          console.log("Анимация начала воспроизводиться для:", triger);
-        },
       },
     }
   );
 }
 
-//? Scroll
-// const lenis = new Lenis({
-//   duration: 1, // Скорость анимации (1.5 = плавнее)
-//   smooth: true, // Включает плавный скролл
-//   smoothTouch: false, // Отключаем плавность на тач-устройствах (по желанию)
-//   easing: (t) => 1 - Math.pow(1 - t, 3), // Более естественное ускорение/замедление
-// });
+//! CONTACTS PARALAX
 
-// // Обновляем Lenis в каждом кадре анимации
-// function raf(time) {
-//   lenis.raf(time);
-//   requestAnimationFrame(raf);
-// }
-// requestAnimationFrame(raf);
+function feidInParalax(
+  elem,
+  trigger,
+  start = "bottom 90%",
+  yStart = -300,
+  duration = 0.6
+) {
+  gsap.fromTo(
+    elem,
+    { y: yStart },
+    {
+      y: 0,
+      duration: duration,
+      scrollTrigger: {
+        trigger: trigger,
+        start: start,
+        toggleActions: "play none play reverse",
+      },
+    }
+  );
+}
+
+feidInParalax(".contacts", ".media");
+
+//! FOOTER PARALAX
+feidInParalax(".footer", ".contacts", "bottom 60%", -340);
+
+//? Scroll
+const lenis = new Lenis({
+  duration: 1, // Скорость анимации (1.5 = плавнее)
+  smooth: true, // Включает плавный скролл
+  smoothTouch: true, // Отключаем плавность на тач-устройствах (по желанию)
+  easing: (t) => 1 - Math.pow(1 - t, 3), // Более естественное ускорение/замедление
+});
+
+// Обновляем Lenis в каждом кадре анимации
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);

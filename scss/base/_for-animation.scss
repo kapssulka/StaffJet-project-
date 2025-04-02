@@ -5,3 +5,11 @@
   opacity: 0;
   transform: translateY(50px);
 }
+
+.animate-services-title-1,
+.animate-services-title-2,
+.animate-services-title-3 {
+  span {
+    opacity: 0.25;
+  }
+}

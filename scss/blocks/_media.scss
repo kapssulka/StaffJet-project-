@@ -1,4 +1,6 @@
 .media {
+  position: relative;
+  z-index: 3;
   padding-bottom: 70px;
 
   margin-top: 226px;
@@ -7,6 +9,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  background-color: $white-bg;
 
   // background
 

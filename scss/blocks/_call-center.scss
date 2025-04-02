@@ -102,24 +102,27 @@
     &:nth-child(5) {
       max-width: 560px;
     }
+    &:before {
+      content: "";
+      position: absolute;
+      left: -64px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+
+      border-radius: 50%;
+
+      transition: all 1s ease;
+      background-color: $black;
+      opacity: 0;
+    }
 
     &._active {
       opacity: 1;
 
       &:before {
-        content: "";
-        position: absolute;
-        left: -64px;
-        top: 50%;
-        transform: translateY(-50%);
-
-        width: 24px;
-        height: 24px;
-
-        border-radius: 50%;
-
-        background-color: $black;
-        transition: all 1s ease;
+        opacity: 1;
       }
 
       @media (max-width: 600px) {
