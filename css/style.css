@@ -1196,6 +1196,14 @@ main {
   -o-object-fit: 100% 100%;
      object-fit: 100% 100%;
 }
+@media (min-width: 1025px) {
+  .about-us__bg-img {
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(20%, rgb(0, 0, 0)), color-stop(80%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0));
+    mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(20%, rgb(0, 0, 0)), color-stop(80%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0));
+  }
+}
 @media (max-width: 1024px) {
   .about-us {
     margin-top: 85px;
@@ -1373,6 +1381,14 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+@media (min-width: 1025px) {
+  .services__inner-top {
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%);
+    mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%);
+  }
 }
 @media (max-width: 1440px) {
   .services__inner-top {
@@ -1904,6 +1920,14 @@ main {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+@media (min-width: 1025px) {
+  .agency__inner-top {
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%);
+    mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%);
+  }
+}
 .agency__inner-top .section-title__part-2 {
   max-width: 1080px;
 }
@@ -2229,6 +2253,14 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+@media (min-width: 1025px) {
+  .cpa__inner-top {
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)), color-stop(80%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0));
+    mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)), color-stop(80%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0));
+  }
 }
 @media (max-width: 1024px) {
   .cpa__inner-top {
@@ -2707,6 +2739,14 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+@media (min-width: 1025px) {
+  .call-center {
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)), color-stop(90%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0));
+    mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)), color-stop(90%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0));
+  }
 }
 @media (max-width: 1024px) {
   .call-center {
@@ -3388,6 +3428,14 @@ main {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-color: #e7ecf2;
+}
+@media (min-width: 1025px) {
+  .contacts {
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)));
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%);
+    mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(10%, rgb(0, 0, 0)));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 10%);
+  }
 }
 @media (max-width: 1024px) {
   .contacts {
