@@ -203,8 +203,11 @@
     @media (max-width: 1024px) {
       position: relative;
       overflow: hidden;
-      height: 120px;
+      height: 100px;
       transition: height 0.2s linear;
+      &:last-child {
+        height: 120px;
+      }
       &._active {
         height: 340px;
       }

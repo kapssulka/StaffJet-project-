@@ -234,47 +234,16 @@ timelineProcesses
 
 //! AGENCY SECTION
 
-// let timelineAgencyCard = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".test-a", // Контейнер с элементами
-//     start: "bottom top",
-//     end: "+=200%", // Длина анимации — высота экрана
-//     toggleActions: "play none none reverse",
-//     pin: "#agency",
-//     scrub: 1,
-//   },
-// });
+let mmAgency = gsap.matchMedia();
 
-// gsap.utils.toArray(".animate-agency-card").forEach((item, index) => {
-//   timelineAgencyCard.fromTo(
-//     item,
-//     { top: index === 0 ? 340 + 30 + 366 : "200vh", y: 0 },
-//     {
-//       top: 80 * (index + 1) + 366,
-//       duration: 0.6,
-//     },
-//     index * 1 // Время появления (аналог `stagger`)
-//   );
-// });
+mmAgency.add("(min-width: 1025px)", () => {
+  let agencyCards = gsap.utils.toArray(".animate-agency-card");
 
-let isAnimateAgencyCard = true;
-let timelineAgencyCard; // Переменная для хранения timeline
-let agencyCards = gsap.utils.toArray(".animate-agency-card"); // Собирам все карточки сразу
-
-// Функция для сброса стилей элементов
-function resetCardStyles() {
-  agencyCards.forEach((item) => {
-    gsap.set(item, { clearProps: "all" }); // Убираем все изменения стилей, сделанные через GSAP
-  });
-}
-
-// Функция для создания анимации
-function createAnimation() {
-  timelineAgencyCard = gsap.timeline({
+  let timelineAgencyCard = gsap.timeline({
     scrollTrigger: {
-      trigger: ".trigger-agency-card-animate", // Контейнер с элементами
+      trigger: ".trigger-agency-card-animate",
       start: "bottom top",
-      end: "+=200%", // Длина анимации — высота экрана
+      end: "+=200%",
       toggleActions: "play none none reverse",
       pin: "#agency",
       scrub: 1,
@@ -285,47 +254,15 @@ function createAnimation() {
     timelineAgencyCard.fromTo(
       item,
       { top: index === 0 ? 340 + 30 + 366 : "200vh", y: 0 },
-      {
-        top: 80 * (index + 1) + 366,
-        duration: 0.6,
-      },
-      index * 1 // Время появления (аналог `stagger`)
+      { top: 80 * (index + 1) + 366, duration: 0.6 },
+      index * 1
     );
   });
-}
 
-// Обновление анимации при изменении размера окна
-window.addEventListener("resize", () => {
-  if (window.innerWidth <= 1024) {
-    // Если анимация была создана, убираем её
-    if (timelineAgencyCard) {
-      timelineAgencyCard.kill(); // Убираем старую анимацию
-      timelineAgencyCard = null; // Очищаем переменную
-    }
-
-    // Сбрасываем все стили, установленные через GSAP
-
-    resetCardStyles();
-
-    // Отключаем флаг анимации для мобильных устройств
-    isAnimateAgencyCard = false;
-  } else {
-    isAnimateAgencyCard = true;
-
-    // Если анимация ещё не создана, создаём её
-    if (!timelineAgencyCard) {
-      createAnimation(); // Функция для создания анимации
-    } else {
-      // Если анимация уже существует, обновляем её
-      ScrollTrigger.refresh(); // Обновляем ScrollTrigger, чтобы корректно перезапустилась анимация
-    }
-  }
+  return () => {
+    timelineAgencyCard.revert(); // Очищает GSAP и ScrollTrigger
+  };
 });
-
-// Запуск анимации сразу, если размер страницы больше 1024px
-if (window.innerWidth > 1024 && isAnimateAgencyCard) {
-  createAnimation();
-}
 
 //! CPA SECTION
 
@@ -435,6 +372,103 @@ if (window.innerWidth > 1020) {
 
 //! TEAM SECTION
 fadeinSimpleBlock(".animate-team-title", ".animate-team-content", ".team");
+
+//! CALL CENTER SECTION
+
+// let callCenterText = gsap.utils.toArray(".animate-call-center-text");
+
+// let timelineCallCenter = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".trigger-call-center-animate",
+//     start: "bottom top",
+//     end: "+=200%",
+//     toggleActions: "play none none reverse",
+//     pin: ".call-center",
+//     scrub: 3,
+//     toggleClass: { targets: item, className: "_active" },
+//   },
+// });
+
+// callCenterText.forEach((item, index) => {
+//   timelineCallCenter.fromTo(
+//     item,
+//     {},
+//     {
+//       onStart: () => {
+//         console.log("Начало");
+
+//         item.classList.add("_active");
+//       },
+//       onComplete: () => {
+//         console.log("Конец");
+
+//         item.classList.remove("_active");
+//       },
+
+//       onReverseStart: () => {
+//         console.log("Реверс: Начало");
+
+//         item.classList.add("_active");
+//       },
+//       onReverseComplete: () => {
+//         console.log("Реверс: Конец");
+
+//         item.classList.remove("_active");
+//       },
+//     }
+//     // index * 1
+//   );
+// });
+
+let callCenterText = gsap.utils.toArray(".animate-call-center-text");
+
+let timelineCallCenter = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".trigger-call-center-animate",
+    start: "bottom top",
+    end: "+=200%",
+    pin: ".call-center",
+    scrub: 3,
+  },
+});
+
+callCenterText.forEach((item, index) => {
+  timelineCallCenter.to(
+    {},
+    {
+      duration: 1, // Время смены активного элемента
+      onUpdate: function () {
+        let progress =
+          timelineCallCenter.progress() * (callCenterText.length - 1);
+        let currentIndex = Math.round(progress);
+
+        callCenterText.forEach((el, i) => {
+          if (i === currentIndex) {
+            el.classList.add("_active");
+          } else {
+            el.classList.remove("_active");
+          }
+        });
+      },
+    }
+  );
+});
+
+// callCenterText.forEach((item) => {
+//   gsap.set(item, {
+//     scrollTrigger: {
+//       trigger: ".trigger-call-center-animate",
+//       start: "bottom top",
+//       end: "+=200%",
+//       toggleActions: "play none none reverse",
+//       pin: ".call-center",
+//       scrub: 3,
+//       toggleClass: { targets: item, className: "_active" },
+//     },
+//   });
+// });
+
+// trigger-call-center-animate
 
 //! CLIENTS SECTION
 fadeinSimpleBlock(

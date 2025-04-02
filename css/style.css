@@ -2109,9 +2109,12 @@ main {
   .agency-accordion__item {
     position: relative;
     overflow: hidden;
-    height: 120px;
+    height: 100px;
     -webkit-transition: height 0.2s linear;
     transition: height 0.2s linear;
+  }
+  .agency-accordion__item:last-child {
+    height: 120px;
   }
   .agency-accordion__item._active {
     height: 340px;
@@ -2803,6 +2806,8 @@ main {
   line-height: 130%;
   letter-spacing: -2%;
   opacity: 25%;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }
 .call-center__text-list-item:not(:last-child) {
   margin-bottom: 80px;
