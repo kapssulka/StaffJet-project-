@@ -347,78 +347,15 @@ if (window.innerWidth > 1020) {
   );
 }
 
-// cpaDataCards.forEach((item, index) => {
-//   let heightPercent;
-
-//   if (index == 0) heightPercent = "70%";
-
-//   if (index == 1) heightPercent = "80%";
-//   if (index == 2) heightPercent = "90%";
-
-//   if (index == 3) heightPercent = "100%";
-
-//   timelineCPAData.fromTo(
-//     item,
-//     { height: 0 },
-//     {
-//       height: heightPercent,
-//       duration: 0.6,
-//     }
-//     // index * 1 // Время появления (аналог `stagger`)
-//   );
-// });
-
-// animate-cpa-data-card
-
 //! TEAM SECTION
-fadeinSimpleBlock(".animate-team-title", ".animate-team-content", ".team");
+fadeinSimpleBlock(
+  ".animate-team-title",
+  ".animate-team-content",
+  ".trigger-team",
+  "top top"
+);
 
 //! CALL CENTER SECTION
-
-// let callCenterText = gsap.utils.toArray(".animate-call-center-text");
-
-// let timelineCallCenter = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".trigger-call-center-animate",
-//     start: "bottom top",
-//     end: "+=200%",
-//     toggleActions: "play none none reverse",
-//     pin: ".call-center",
-//     scrub: 3,
-//     toggleClass: { targets: item, className: "_active" },
-//   },
-// });
-
-// callCenterText.forEach((item, index) => {
-//   timelineCallCenter.fromTo(
-//     item,
-//     {},
-//     {
-//       onStart: () => {
-//         console.log("Начало");
-
-//         item.classList.add("_active");
-//       },
-//       onComplete: () => {
-//         console.log("Конец");
-
-//         item.classList.remove("_active");
-//       },
-
-//       onReverseStart: () => {
-//         console.log("Реверс: Начало");
-
-//         item.classList.add("_active");
-//       },
-//       onReverseComplete: () => {
-//         console.log("Реверс: Конец");
-
-//         item.classList.remove("_active");
-//       },
-//     }
-//     // index * 1
-//   );
-// });
 
 let callCenterText = gsap.utils.toArray(".animate-call-center-text");
 
@@ -426,7 +363,7 @@ let timelineCallCenter = gsap.timeline({
   scrollTrigger: {
     trigger: ".trigger-call-center-animate",
     start: "bottom top",
-    end: "+=200%",
+    end: "+=100%",
     pin: ".call-center",
     scrub: 3,
   },
@@ -454,22 +391,6 @@ callCenterText.forEach((item, index) => {
   );
 });
 
-// callCenterText.forEach((item) => {
-//   gsap.set(item, {
-//     scrollTrigger: {
-//       trigger: ".trigger-call-center-animate",
-//       start: "bottom top",
-//       end: "+=200%",
-//       toggleActions: "play none none reverse",
-//       pin: ".call-center",
-//       scrub: 3,
-//       toggleClass: { targets: item, className: "_active" },
-//     },
-//   });
-// });
-
-// trigger-call-center-animate
-
 //! CLIENTS SECTION
 fadeinSimpleBlock(
   ".animate-clients-title",
@@ -477,8 +398,11 @@ fadeinSimpleBlock(
   ".clients"
 );
 
+//! MEDIA SECTION
+fadeinSimpleBlock(".animate-media-title", ".animate-media-content", ".media");
+
 //? helper for simple blocks animation
-function fadeinSimpleBlock(title, content, triger) {
+function fadeinSimpleBlock(title, content, triger, start = "top 40%") {
   gsap.fromTo(
     title,
     { opacity: 0, y: 50 },
@@ -488,7 +412,7 @@ function fadeinSimpleBlock(title, content, triger) {
       duration: 0.6,
       scrollTrigger: {
         trigger: triger,
-        start: "top 40%",
+        start: start,
         toggleActions: "play none play reverse",
       },
     }
@@ -503,9 +427,28 @@ function fadeinSimpleBlock(title, content, triger) {
       duration: 0.6,
       scrollTrigger: {
         trigger: triger,
-        start: "top 40%",
+        start: start,
         toggleActions: "play none play reverse",
+        onEnter: () => {
+          // Используем onEnter для того, чтобы событие сработало при старте анимации
+          console.log("Анимация начала воспроизводиться для:", triger);
+        },
       },
     }
   );
 }
+
+//? Scroll
+// const lenis = new Lenis({
+//   duration: 1, // Скорость анимации (1.5 = плавнее)
+//   smooth: true, // Включает плавный скролл
+//   smoothTouch: false, // Отключаем плавность на тач-устройствах (по желанию)
+//   easing: (t) => 1 - Math.pow(1 - t, 3), // Более естественное ускорение/замедление
+// });
+
+// // Обновляем Lenis в каждом кадре анимации
+// function raf(time) {
+//   lenis.raf(time);
+//   requestAnimationFrame(raf);
+// }
+// requestAnimationFrame(raf);

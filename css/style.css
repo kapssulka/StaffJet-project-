@@ -2832,6 +2832,8 @@ main {
   height: 24px;
   border-radius: 50%;
   background-color: #1e1e1e;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }
 @media (max-width: 600px) {
   .call-center__text-list-item._active:before {
