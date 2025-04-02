@@ -4,15 +4,29 @@
   width: 100%;
 
   &._fixed {
-    position: fixed;
+    .burger {
+      position: fixed;
 
-    top: 0;
-    left: 0;
+      top: 30px;
+      right: 40px;
 
-    background: rgba($color: $white-bg, $alpha: 0.5);
+      //? 1
+      -webkit-box-shadow: 1px 3px 13px -3px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 1px 3px 13px -3px rgba(0, 0, 0, 0.2);
+      box-shadow: 1px 3px 13px -3px rgba(0, 0, 0, 0.2);
 
-    backdrop-filter: blur(10px); /* Размытие фона за элементом */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для эффекта глубины */
+      //? для header был
+      // background: rgba($color: $white-bg, $alpha: 0.5);
+
+      // backdrop-filter: blur(10px); /* Размытие фона за элементом */
+      // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень для эффекта глубины */
+    }
+
+    @media (max-width: 600px) {
+      .burger {
+        right: 20px;
+      }
+    }
   }
 
   &__inner {

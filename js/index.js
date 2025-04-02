@@ -101,20 +101,26 @@ let lastScrollTop = window.scrollY;
 
 if (header) {
   window.addEventListener("scroll", function () {
-    let scrollTop = window.scrollY;
+    // let scrollTop = window.scrollY;
 
-    if (
-      scrollTop < lastScrollTop &&
-      scrollTop > 200 &&
-      window.innerWidth < 768 &&
-      isVisibleFixedHeader
-    ) {
+    // if (
+    //   scrollTop < lastScrollTop &&
+    //   scrollTop > 200 &&
+    //   window.innerWidth < 768 &&
+    //   isVisibleFixedHeader
+    // ) {
+    //   header.classList.add("_fixed");
+    // } else {
+    //   header.classList.remove("_fixed");
+    // }
+
+    // lastScrollTop = scrollTop;
+
+    if (window.scrollY > 200 && window.innerWidth < 768) {
       header.classList.add("_fixed");
     } else {
       header.classList.remove("_fixed");
     }
-
-    lastScrollTop = scrollTop;
   });
 }
 

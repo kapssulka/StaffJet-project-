@@ -159,24 +159,28 @@ gsap.fromTo(
   }
 );
 // bg
-gsap.fromTo(
-  ".fade-in-about-bg",
-  {
-    opacity: 0,
-    scale: 0.8,
-  },
-  {
-    opacity: 1,
+let mmFadeIn = gsap.matchMedia();
 
-    scale: 1,
-    duration: 0.6,
-    scrollTrigger: {
-      trigger: "#about-us", // Этот элемент будет триггером
-      start: "top 30%", // Когда верх блока окажется на 80% экрана
-      toggleActions: "play none none reverse", // Запуск анимации при появлении и возврат при уходе
-    },
-  }
-);
+mmFadeIn.add("(min-width: 1025px)", () => {
+  let fadeInAnimation = gsap.fromTo(
+    ".fade-in-about-bg",
+    { opacity: 0, scale: 0.8 },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 0.6,
+      scrollTrigger: {
+        trigger: "#about-us",
+        start: "top 30%",
+        toggleActions: "play none none reverse",
+      },
+    }
+  );
+
+  return () => {
+    fadeInAnimation.kill(); // Удаляем анимацию при изменении размеров экрана
+  };
+});
 
 //! SERVICES SECTION
 
@@ -549,8 +553,28 @@ function fadeinSimpleBlock(title, content, triger, start = "top 40%") {
   );
 }
 
-//! CONTACTS PARALAX
+//! CONTACTS and FOOTER PARALAX
 
+let mmParallax = gsap.matchMedia();
+
+mmParallax.add("(min-width: 1025px)", () => {
+  // Создаем переменные для хранения ScrollTrigger
+  let scrollTriggerInstanceContacts = feidInParalax(".contacts", ".media");
+  let scrollTriggerInstanceFooter = feidInParalax(
+    ".footer",
+    ".contacts",
+    "bottom 60%",
+    -340
+  );
+
+  return () => {
+    // Удаляем только связанные ScrollTrigger'ы
+    scrollTriggerInstanceContacts?.kill();
+    scrollTriggerInstanceFooter?.kill();
+  };
+});
+
+// функция паралакса
 function feidInParalax(
   elem,
   trigger,
@@ -572,11 +596,6 @@ function feidInParalax(
     }
   );
 }
-
-feidInParalax(".contacts", ".media");
-
-//! FOOTER PARALAX
-feidInParalax(".footer", ".contacts", "bottom 60%", -340);
 
 //? Scroll
 const lenis = new Lenis({

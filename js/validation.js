@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = form.querySelector("#email");
     const checkbox = form.querySelector("#privacy_policy");
 
+    const comment = form.querySelector("#comment");
+
     const popup = document.getElementById("js-pop-up");
 
     // get value
@@ -102,6 +104,13 @@ document.addEventListener("DOMContentLoaded", () => {
       checkboxlValue = e.target.checked;
 
       validation(checkbox, e.target.checked, "checkbox");
+    });
+
+    // валидация на пробелы
+    [name, email, comment].forEach((item) => {
+      item.addEventListener("input", (e) => {
+        e.target.value = e.target.value.trim();
+      });
     });
 
     // HELPER
