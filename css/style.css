@@ -1642,9 +1642,14 @@ main {
 }
 .card-services__number {
   font-weight: 400;
-  font-size: 28px;
+  font-size: 36px;
   line-height: 110%;
   letter-spacing: -2%;
+}
+@media (max-width: 1440px) {
+  .card-services__number {
+    font-size: 28px;
+  }
 }
 .card-services._open .card-services__button {
   background-color: #1e1e1e;
@@ -3425,6 +3430,7 @@ main {
   position: relative;
   z-index: 2;
   padding: 100px 0;
+  margin-top: 200px;
   background-image: url("./../images/background/contacts/contacts-bg.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -4333,4 +4339,14 @@ main {
 .animate-services-title-2 span,
 .animate-services-title-3 span {
   opacity: 0.25;
+}
+
+@media (min-width: 1021px) {
+  .animate-cpa-data-card-1,
+  .animate-cpa-data-card-2,
+  .animate-cpa-data-card-3,
+  .animate-cpa-data-card-4 {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
 }

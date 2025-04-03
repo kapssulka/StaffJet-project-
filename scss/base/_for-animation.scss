@@ -13,3 +13,12 @@
     opacity: 0.25;
   }
 }
+
+@media (min-width: 1021px) {
+  .animate-cpa-data-card-1,
+  .animate-cpa-data-card-2,
+  .animate-cpa-data-card-3,
+  .animate-cpa-data-card-4 {
+    transform: translateY(-100%);
+  }
+}

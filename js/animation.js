@@ -220,7 +220,7 @@ function animateText(textElem1, textElem2, textElem3, delay) {
       start: "top top",
       toggleActions: "play none none reverse",
       pin: true,
-      scrub: 1,
+      scrub: 0.1,
     },
   });
 
@@ -400,66 +400,46 @@ gsap.fromTo(
 fadeinSimpleBlock(".animate-cpa-title", ".animate-cpa-content", "#cpa");
 
 //! CPA-DATA SECTION
+let mmCPAData = gsap.matchMedia();
 
-if (window.innerWidth > 1020) {
-  gsap.fromTo(
-    ".animate-cpa-data-card-1",
-    { y: "100%" },
-    {
-      y: 0,
-      duration: 0.6,
-      delay: 0.2,
-      scrollTrigger: {
-        trigger: ".cpa-data",
-        start: "top 20%",
-        toggleActions: "play none none none",
-      },
-    }
-  );
-  gsap.fromTo(
-    ".animate-cpa-data-card-2",
-    { y: "100%" },
-    {
-      y: 0,
-      duration: 0.6,
-      delay: 0.3,
-      scrollTrigger: {
-        trigger: ".cpa-data",
-        start: "top 20%",
-        toggleActions: "play none none none",
-      },
-    }
-  );
-  gsap.fromTo(
-    ".animate-cpa-data-card-3",
-    { y: "100%" },
-    {
-      y: 0,
-      duration: 0.6,
-      delay: 0.4,
-      scrollTrigger: {
-        trigger: ".cpa-data",
-        start: "top 20%",
-        toggleActions: "play none none none",
-      },
-    }
-  );
-  gsap.fromTo(
-    ".animate-cpa-data-card-4",
-    { y: "100%" },
-    {
-      y: 0,
-      duration: 0.6,
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: ".cpa-data",
-        start: "top 20%",
-        toggleActions: "play none none none",
-      },
-    }
-  );
+mmCPAData.add("(min-width: 1021px)", () => {
+  // Создаем общий timeline для всех анимаций
+  let timelineCPAData = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".cpa-data",
+      start: "top 20%",
+      toggleActions: "play none none reverse",
+      once: false, // анимации будут работать при каждом попадании в область
+    },
+  });
 
-  gsap.fromTo(
+  // Добавляем анимации для каждого элемента с задержками
+  timelineCPAData
+    .fromTo(
+      ".animate-cpa-data-card-1",
+      { y: "100%" },
+      { y: 0, duration: 0.6 } // Задержка для первого элемента
+    )
+    .fromTo(
+      ".animate-cpa-data-card-2",
+      { y: "100%" },
+      { y: 0, duration: 0.6, delay: 0.1 },
+      "<" // Задержка для второго элемента
+    )
+    .fromTo(
+      ".animate-cpa-data-card-3",
+      { y: "100%" },
+      { y: 0, duration: 0.6, delay: 0.2 },
+      "<" // Задержка для третьего элемента
+    )
+    .fromTo(
+      ".animate-cpa-data-card-4",
+      { y: "100%" },
+      { y: 0, duration: 0.6, delay: 0.3 },
+      "<" // Задержка для четвертого элемента
+    );
+
+  const animateCPATitle = gsap.fromTo(
     ".animate-cpa-data-title",
     {
       y: 50,
@@ -472,10 +452,18 @@ if (window.innerWidth > 1020) {
       scrollTrigger: {
         trigger: ".cpa-data", // Этот элемент будет триггером
         start: "top 30%", // Когда верх блока окажется на 80% экрана
-        toggleActions: "play none none none", // Запуск анимации при появлении и возврат при уходе
+        toggleActions: "play none none reverse", // Запуск анимации при появлении и возврат при уходе
       },
     }
   );
+
+  return () => {
+    timelineCPAData?.revert(); // Очищает GSAP и ScrollTrigger
+    animateCPATitle?.kill(); // Удаляем анимацию при изменении размеров экрана
+  };
+});
+
+if (window.innerWidth > 1020) {
 }
 
 //! TEAM SECTION
