@@ -2105,6 +2105,9 @@ main {
 .agency-accordion__item:nth-child(7) {
   bottom: -340px;
 }
+.agency-accordion__item._active .agency-accordion__item-buttom {
+  opacity: 1;
+}
 .agency-accordion__item:first-child {
   -webkit-box-shadow: none;
           box-shadow: none;

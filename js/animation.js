@@ -308,11 +308,12 @@ timelineProcesses
   );
 
 //! AGENCY SECTION
-
 let mmAgency = gsap.matchMedia();
 
 mmAgency.add("(min-width: 1025px)", () => {
   let agencyCards = gsap.utils.toArray(".animate-agency-card");
+
+  agencyCards[0].classList.add("_active");
 
   let timelineAgencyCard = gsap.timeline({
     scrollTrigger: {
@@ -322,20 +323,59 @@ mmAgency.add("(min-width: 1025px)", () => {
       toggleActions: "play none none reverse",
       pin: "#agency",
       scrub: 1,
+      onUpdate: () => {
+        let progress = timelineAgencyCard.scrollTrigger.progress;
+        let activeIndex = Math.round(progress * (agencyCards.length - 1));
+
+        agencyCards.forEach((card, index) => {
+          card.classList.toggle("_active", index === activeIndex);
+        });
+      },
     },
   });
 
   agencyCards.forEach((item, index) => {
     timelineAgencyCard.fromTo(
       item,
-      { top: index === 0 ? 340 + 30 + 366 : "200vh", y: 0 },
-      { top: 80 * (index + 1) + 366, duration: 0.6 },
+      {
+        top: index === 0 ? 366 : index === 1 ? 340 + 30 + 30 + 366 : "200vh",
+        y: 0,
+      },
+      {
+        top: index === 0 ? 366 : 80 * (index + 1) + 366 - 80,
+        duration: 0.6,
+      },
       index * 1
     );
+
+    //? Обработчик клика для отката к элементу
+
+    item.addEventListener("click", () => {
+      // Вычисляем абсолютное время для перехода к нужному элементу
+      let targetTime = index / (agencyCards.length - 1);
+
+      // Добавляем небольшое смещение, чтобы поправить поведение
+      let offset = 0.05; // Можно настроить этот коэффициент для точного перехода
+
+      // Используем scrollTrigger, чтобы откатить анимацию в правильный момент
+      timelineAgencyCard.scrollTrigger.scroll(
+        timelineAgencyCard.scrollTrigger.start +
+          (targetTime + offset) *
+            (timelineAgencyCard.scrollTrigger.end -
+              timelineAgencyCard.scrollTrigger.start)
+      );
+
+      // Удаляем _active у всех и добавляем только на кликнутый элемент
+      agencyCards.forEach((card) => card.classList.remove("_active"));
+      item.classList.add("_active");
+    });
   });
 
   return () => {
-    timelineAgencyCard.revert(); // Очищает GSAP и ScrollTrigger
+    if (timelineAgencyCard.scrollTrigger) {
+      timelineAgencyCard.scrollTrigger.kill();
+    }
+    timelineAgencyCard.kill();
   };
 });
 
