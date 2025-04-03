@@ -110,9 +110,9 @@ mmHiroSection.add("(min-width: 768px)", () => {
 
 //! ABOUT US SECTION
 
-let mmAboutUs = gsap.matchMedia();
+let mmAboutUsPC = gsap.matchMedia();
 
-mmAboutUs.add("(min-width: 1201px)", () => {
+mmAboutUsPC.add("(min-width: 1201px)", () => {
   // cards
   const cardsAbout = document.querySelector(".about-us__cards");
 
@@ -136,32 +136,7 @@ mmAboutUs.add("(min-width: 1201px)", () => {
     }
   );
 
-  return () => {
-    aboutUsTimeline.revert(); // Очищает GSAP и ScrollTrigger
-  };
-});
-
-gsap.fromTo(
-  ".animate-about-us-title",
-  {
-    y: 50,
-    opacity: 0,
-  },
-  {
-    duration: 0.6,
-    y: 0,
-    opacity: 1,
-    scrollTrigger: {
-      trigger: "#about-us", // Этот элемент будет триггером
-      start: "top 30%", // Когда верх блока окажется на 80% экрана
-      toggleActions: "play none none reverse", // Запуск анимации при появлении и возврат при уходе
-    },
-  }
-);
-// bg
-let mmFadeIn = gsap.matchMedia();
-
-mmFadeIn.add("(min-width: 1025px)", () => {
+  // bg
   let fadeInAnimation = gsap.fromTo(
     ".fade-in-about-bg",
     { opacity: 0, scale: 0.8 },
@@ -177,8 +152,46 @@ mmFadeIn.add("(min-width: 1025px)", () => {
     }
   );
 
+  // title
+  let fadeInAnimationTitle = gsap.fromTo(
+    ".animate-about-us-title",
+    {
+      y: 50,
+      opacity: 0,
+    },
+    {
+      duration: 0.6,
+      y: 0,
+      opacity: 1,
+      scrollTrigger: {
+        trigger: "#about-us", // Этот элемент будет триггером
+        start: "top 30%", // Когда верх блока окажется на 80% экрана
+        toggleActions: "play none none reverse", // Запуск анимации при появлении и возврат при уходе
+      },
+    }
+  );
+
   return () => {
+    aboutUsTimeline.revert(); // Очищает GSAP и ScrollTrigger
     fadeInAnimation.kill(); // Удаляем анимацию при изменении размеров экрана
+    fadeInAnimationTitle.kill();
+  };
+});
+
+// заголовок и конент (мобилки)
+let mmFadeInMobile = gsap.matchMedia();
+
+mmFadeInMobile.add("(max-width: 1200px)", () => {
+  // cards
+  const fadeInAbouMobile = fadeinSimpleBlock(
+    ".animate-about-us-title-mb",
+    ".animate-about-us-content-mb",
+    "#about-us"
+  );
+
+  return () => {
+    // Удаляем только связанные ScrollTrigger'ы
+    fadeInAbouMobile?.kill();
   };
 });
 
@@ -264,23 +277,6 @@ animateText(
   ".animate-services-title-2",
   ".animate-services-title-3"
 );
-
-// card
-// gsap.fromTo(
-//   ".animate-services-card",
-//   { y: 400, opacity: 0 },
-//   {
-//     y: 0,
-//     opacity: 1,
-//     duration: 0.3,
-//     delay: 0.9,
-//     scrollTrigger: {
-//       trigger: ".services",
-//       start: "top top",
-//       toggleActions: "play none none reverse",
-//     },
-//   }
-// );
 
 //! PROCESSES SECTION
 
