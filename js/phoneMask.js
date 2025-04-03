@@ -1,3 +1,5 @@
+import "./librarys/inputmask.min.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const phoneInput = document.getElementById("tel");
 
