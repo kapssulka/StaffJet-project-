@@ -3,15 +3,21 @@
   z-index: 2;
   padding: 100px 0;
 
-  margin-top: 200px;
+  @media (min-width: 1025px) {
+    margin-top: 200px;
+  }
 
-  background-image: url("./../images/background/contacts/contacts-bg.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
   background-color: $white-bg;
 
-  @media (min-width: 1025px) {
+  .contacts__bg-img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: 100% 100%;
+
     -webkit-mask-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0),
@@ -27,16 +33,12 @@
   // background
 
   @media (max-width: 1024px) {
-    background-image: url("./../images/background/contacts/contacts-bg-1024.png");
-
     padding: 100px 0 120px;
   }
   @media (max-width: 840px) {
-    background-image: url("./../images/background/contacts/contacts-bg-tablet.png");
     padding: 100px 0 100px;
   }
   @media (max-width: 767px) {
-    background-image: url("./../images/background/contacts/contacts-bg-mobile.png");
   }
   @media (max-width: 600px) {
     padding: 80px 0 63px;

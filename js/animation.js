@@ -577,23 +577,21 @@ function fadeinSimpleBlock(title, content, triger, start = "top 40%") {
   );
 }
 
-//! CONTACTS and FOOTER PARALAX
+//!  FOOTER PARALAX
 
 let mmParallax = gsap.matchMedia();
 
 mmParallax.add("(min-width: 1025px)", () => {
   // Создаем переменные для хранения ScrollTrigger
-  let scrollTriggerInstanceContacts = feidInParalax(".contacts", ".media");
   let scrollTriggerInstanceFooter = feidInParalax(
     ".footer",
     ".contacts",
-    "bottom 60%",
-    -340
+    "bottom 80%",
+    -345
   );
 
   return () => {
     // Удаляем только связанные ScrollTrigger'ы
-    scrollTriggerInstanceContacts?.kill();
     scrollTriggerInstanceFooter?.kill();
   };
 });

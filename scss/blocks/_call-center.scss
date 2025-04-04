@@ -1,12 +1,16 @@
 .call-center {
+  position: relative;
   padding: 100px 0;
 
-  background-image: url("./../images/background/call-center/call-center-bg.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  .call-center__bg-img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: 100% 100%;
 
-  @media (min-width: 1025px) {
     -webkit-mask-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0),
@@ -24,16 +28,6 @@
   }
 
   // background
-
-  @media (max-width: 1024px) {
-    background-image: url("./../images/background/call-center/call-center-bg-1024.png");
-  }
-  @media (max-width: 840px) {
-    background-image: url("./../images/background/call-center/call-center-bg-tablet.png");
-  }
-  @media (max-width: 767px) {
-    background-image: url("./../images/background/call-center/call-center-bg-mobile.png");
-  }
 
   @media (max-width: 600px) {
     padding: 80px 0;
