@@ -1070,14 +1070,10 @@ main {
   height: 100%;
   -o-object-fit: 100% 100%;
      object-fit: 100% 100%;
-}
-@media ((min-width: 768px)) {
-  .staffjet__bg-img {
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(75%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
-    -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
-    mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(75%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
-    mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
-  }
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(75%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+  -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
+  mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(75%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+  mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
 }
 .staffjet__content {
   margin-top: 100px;
@@ -1201,22 +1197,10 @@ main {
   height: 100%;
   -o-object-fit: 100% 100%;
      object-fit: 100% 100%;
-}
-@media (min-width: 768px) {
-  .about-us__bg-img {
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(20%, rgb(0, 0, 0)), color-stop(70%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 20%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0));
-    mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(20%, rgb(0, 0, 0)), color-stop(70%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 20%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0));
-  }
-}
-@media (max-width: 767px) {
-  .about-us__bg-img {
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(80%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
-    -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%);
-    mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(80%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
-    mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%);
-  }
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(20%, rgb(0, 0, 0)), color-stop(70%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 20%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0));
+  mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(20%, rgb(0, 0, 0)), color-stop(70%, rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0) 20%, rgb(0, 0, 0) 70%, rgba(0, 0, 0, 0));
 }
 @media (max-width: 1024px) {
   .about-us {

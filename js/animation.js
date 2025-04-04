@@ -1,4 +1,10 @@
 //? GSAP
+window.addEventListener("orientationchange", () => {
+  setTimeout(() => {
+    window.location.reload();
+  }, 300);
+});
+
 gsap.registerPlugin(ScrollTrigger);
 
 //! HIRO SECTION
@@ -136,22 +142,6 @@ mmAboutUsPC.add("(min-width: 1201px)", () => {
     }
   );
 
-  // bg
-  let fadeInAnimation = gsap.fromTo(
-    ".fade-in-about-bg",
-    { opacity: 0, scale: 0.8 },
-    {
-      opacity: 1,
-      scale: 1,
-      duration: 0.6,
-      scrollTrigger: {
-        trigger: "#about-us",
-        start: "top 30%",
-        toggleActions: "play none none reverse",
-      },
-    }
-  );
-
   // title
   let fadeInAnimationTitle = gsap.fromTo(
     ".animate-about-us-title",
@@ -173,10 +163,25 @@ mmAboutUsPC.add("(min-width: 1201px)", () => {
 
   return () => {
     aboutUsTimeline.revert(); // Очищает GSAP и ScrollTrigger
-    fadeInAnimation.kill(); // Удаляем анимацию при изменении размеров экрана
     fadeInAnimationTitle.kill();
   };
 });
+
+// bg
+let fadeInAnimation = gsap.fromTo(
+  ".fade-in-about-bg",
+  { opacity: 0, scale: 0.8 },
+  {
+    opacity: 1,
+    scale: 1,
+    duration: 0.6,
+    scrollTrigger: {
+      trigger: "#about-us",
+      start: "top 30%",
+      toggleActions: "play none none reverse",
+    },
+  }
+);
 
 // заголовок и конент (мобилки)
 let mmFadeInMobile = gsap.matchMedia();
@@ -463,9 +468,6 @@ mmCPAData.add("(min-width: 1021px)", () => {
   };
 });
 
-if (window.innerWidth > 1020) {
-}
-
 //! TEAM SECTION
 
 gsap.fromTo(
@@ -618,3 +620,27 @@ function feidInParalax(
     }
   );
 }
+
+//! BG SCALE ANIMATION
+
+function scaleAnimationBg(elem) {
+  // bg
+  return gsap.fromTo(
+    elem,
+    { opacity: 0, scale: 0.8 },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 0.6,
+      scrollTrigger: {
+        trigger: elem,
+        start: "top 30%",
+        toggleActions: "play none none reverse",
+      },
+    }
+  );
+}
+
+let bgAnimateItems = gsap.utils.toArray(".bg-scale-animation");
+
+let animations = bgAnimateItems.map((item) => scaleAnimationBg(item));
