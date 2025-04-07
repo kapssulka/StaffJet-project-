@@ -4460,6 +4460,9 @@ main {
   line-height: 160%;
   letter-spacing: -1.5%;
 }
+.policy__text-wrapper p#bold {
+  font-weight: 600;
+}
 .policy__text {
   font-weight: 500;
   font-size: 20px;
@@ -4487,6 +4490,26 @@ main {
   font-size: 20px;
   line-height: 160%;
   letter-spacing: -1.5%;
+}
+.policy__list-marker {
+  margin-bottom: 32px;
+}
+.policy__list-marker li {
+  position: relative;
+  padding-left: 20px;
+}
+.policy__list-marker li a {
+  font-weight: 600;
+}
+.policy__list-marker li::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #3253ed;
 }
 
 .back-to {

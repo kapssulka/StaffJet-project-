@@ -45,6 +45,10 @@
       font-size: 20px;
       line-height: 160%;
       letter-spacing: -1.5%;
+
+      &#bold {
+        font-weight: 600;
+      }
     }
   }
 
@@ -81,6 +85,29 @@
     font-size: 20px;
     line-height: 160%;
     letter-spacing: -1.5%;
+  }
+
+  &__list-marker {
+    margin-bottom: 32px;
+    li {
+      position: relative;
+      padding-left: 20px;
+
+      a {
+        font-weight: 600;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 14px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: $blue;
+      }
+    }
   }
 }
 

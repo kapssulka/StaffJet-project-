@@ -19,7 +19,7 @@ if (timezoneSpan) {
 }
 function getTime() {
   const options = {
-    timeZone: "Europe/Kaliningrad",
+    timeZone: "Europe/Moscow",
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
