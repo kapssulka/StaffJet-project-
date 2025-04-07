@@ -4454,6 +4454,12 @@ main {
 .policy__text-wrapper:not(:last-child) {
   margin-bottom: 60px;
 }
+.policy__text-wrapper p {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 160%;
+  letter-spacing: -1.5%;
+}
 .policy__text {
   font-weight: 500;
   font-size: 20px;
@@ -4475,6 +4481,12 @@ main {
 }
 .policy__link:hover {
   text-decoration: underline;
+}
+.policy__list-item {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 160%;
+  letter-spacing: -1.5%;
 }
 
 .back-to {

@@ -39,6 +39,13 @@
     &:not(:last-child) {
       margin-bottom: 60px;
     }
+
+    p {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 160%;
+      letter-spacing: -1.5%;
+    }
   }
 
   &__text {
@@ -67,6 +74,13 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  &__list-item {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 160%;
+    letter-spacing: -1.5%;
   }
 }
 
