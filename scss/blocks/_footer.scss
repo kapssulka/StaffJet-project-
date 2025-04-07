@@ -132,6 +132,10 @@
 
     color: #787878;
 
+    &:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 880px) {
       &:not(:last-child) {
         margin-bottom: 24px;
