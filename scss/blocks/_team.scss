@@ -4,11 +4,6 @@
 
   margin-bottom: 200px;
 
-  // background-image: url("./../images/background/team/team-bg.png");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: 100% 100%;
-
   .team__bg-img {
     position: absolute;
     z-index: -1;
@@ -37,16 +32,9 @@
   // background
 
   @media (max-width: 1024px) {
-    // background-image: url("./../images/background/team/team-bg-1024.png");
     padding: 100px 0;
 
     margin-bottom: 0;
-  }
-  @media (max-width: 840px) {
-    // background-image: url("./../images/background/team/team-bg-tablet.png");
-  }
-  @media (max-width: 767px) {
-    // background-image: url("./../images/background/team/team-bg-mobile.png");
   }
 
   @media (max-width: 600px) {

@@ -31,8 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const formData = new FormData(form);
 
-        //? ТЕСТОВЫЙ КОД ДЛЯ ПОКАЗА POP UP
-        // ЭТОТ КОД МОЖНО УБРАТЬ КОГДА БУДЕТ ПРАВИЛЬНЫЙ ПУТЬ ДЛЯ ОТПРАВКИ fetch
+        //? ТЕСТОВЫЙ КОД ДЛЯ ДЕМОНСТРАЦИИ POP UP ПРИ УСПЕХЕ
+        // ЭТОТ КОД НУЖНО УБРАТЬ КОГДА БУДЕТ ПРАВИЛЬНЫЙ ПУТЬ ДЛЯ ОТПРАВКИ fetch
+        // -------------------------------------------------------------------
         for (let pair of formData.entries()) {
           console.log(pair[0] + ": " + pair[1]);
         }
@@ -50,10 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
         telValue = "";
         emailValue = "";
         checkboxlValue = "";
+        // -------------------------------------------------------------------------
 
-        //? ОТПРАВКА ЗАПРОСА НА СЕРВЕР (раскомментировать и указать правильный путь на файл)
+        //? ОТПРАВКА ЗАПРОСА НА СЕРВЕР (раскомментировать и указать правильный путь на файл обработки)
         // try {
-        //   const response = await fetch("server.php", {
+        //   const response = await fetch("верный_файл.php", {
         //     method: "POST",
         //     body: formData,
         //   });

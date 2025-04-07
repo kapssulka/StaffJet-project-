@@ -101,21 +101,6 @@ let lastScrollTop = window.scrollY;
 
 if (header) {
   window.addEventListener("scroll", function () {
-    // let scrollTop = window.scrollY;
-
-    // if (
-    //   scrollTop < lastScrollTop &&
-    //   scrollTop > 200 &&
-    //   window.innerWidth < 768 &&
-    //   isVisibleFixedHeader
-    // ) {
-    //   header.classList.add("_fixed");
-    // } else {
-    //   header.classList.remove("_fixed");
-    // }
-
-    // lastScrollTop = scrollTop;
-
     if (window.scrollY > 200 && window.innerWidth < 768) {
       header.classList.add("_fixed");
     } else {
@@ -312,3 +297,16 @@ if (popup) {
     }
   };
 }
+
+// исправление проблеммы с переходом на главную к якорю (с жругих страниц)
+window.addEventListener("load", function () {
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "auto" });
+      }, 1000);
+    }
+  }
+});

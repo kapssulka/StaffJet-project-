@@ -3,11 +3,6 @@
     position: relative;
     padding: 100px 0 580px;
 
-    // background-image: url("./../images/background/cpa/cpa-bg-top.png");
-    // background-position: center;
-    // background-repeat: no-repeat;
-    // background-size: 100% 100%;
-
     .cpa__bg-img-top {
       position: absolute;
       z-index: -1;
@@ -82,11 +77,6 @@
       margin-top: -366px;
       padding: 366px 0 100px;
 
-      // background-image: url("./../images/background/cpa/cpa-bg-grid-1024.png");
-      // background-position: center;
-      // background-repeat: no-repeat;
-      // background-size: 100% 100%;
-
       .cpa__bg-img {
         display: block;
       }
@@ -102,14 +92,8 @@
     }
 
     @media (max-width: 840px) {
-      // background-image: url("./../images/background/cpa/cpa-bg-grid-tablet.png");
-
       margin-top: -306px;
       padding: 306px 0 100px;
-    }
-
-    @media (max-width: 767px) {
-      // background-image: url("./../images/background/cpa/cpa-bg-grid-mobile.png");
     }
 
     @media (max-width: 648px) {

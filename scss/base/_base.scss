@@ -40,7 +40,6 @@ body {
   padding: 0 80px;
 
   margin: 0 auto;
-  // overflow: hidden;
 
   @media (max-width: 1440px) {
     padding: 0 40px;
@@ -62,7 +61,3 @@ body {
 main {
   flex: 1 1 auto;
 }
-
-// .header._fixed + main {
-//   padding-top: 110px;
-// }

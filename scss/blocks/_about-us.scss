@@ -2,11 +2,6 @@
   position: relative;
   padding: 100px 0 200px;
 
-  // background-image: url("./../images/background/about-us/about-us-bg.png");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: 100% 100%;
-
   &__bg-img {
     position: absolute;
     z-index: -1;
@@ -30,34 +25,13 @@
       rgba(0, 0, 0, 1) 70%,
       rgba(0, 0, 0, 0)
     );
-    // @media (max-width: 767px) {
-    //   -webkit-mask-image: linear-gradient(
-    //     to bottom,
-    //     rgba(0, 0, 0, 1) 80%,
-    //     rgba(0, 0, 0, 0) 100%
-    //   );
-    //   mask-image: linear-gradient(
-    //     to bottom,
-    //     rgba(0, 0, 0, 1) 80%,
-    //     rgba(0, 0, 0, 0) 100%
-    //   );
-    // }
   }
 
   // background
 
   @media (max-width: 1024px) {
-    // background-image: url("./../images/background/about-us/about-us-bg-1024.png");
-
-    // чтобы возместить отступ от "staffjet"
     margin-top: calc(85px);
   }
-  // @media (max-width: 840px) {
-  //   background-image: url("./../images/background/about-us/about-us-bg-tablet.png");
-  // }
-  // @media (max-width: 767px) {
-  //   background-image: url("./../images/background/about-us/about-us-bg-mobile.png");
-  // }
 
   @media (max-width: 1200px) {
     padding: 100px 0 100px;

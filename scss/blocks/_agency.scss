@@ -6,11 +6,6 @@
     position: relative;
     padding: 100px 0 336px;
 
-    // background-image: url("./../images/background/agency/agency-bg.png");
-    // background-position: center;
-    // background-repeat: no-repeat;
-    // background-size: 100% 100%;
-
     .agency__bg-img-top {
       position: absolute;
       z-index: -1;
@@ -52,7 +47,6 @@
       }
     }
     @media (max-width: 840px) {
-      // background-image: url("./../images/background/agency/agency-bg-tablet-1.png");
       padding: 100px 0 269px;
 
       .agency__bg-img-top {
@@ -60,7 +54,6 @@
       }
     }
     @media (max-width: 767px) {
-      // background-image: url("./../images/background/agency/agency-bg-mobile-1.png");
       padding: 80px 0 432px;
     }
   }
@@ -302,20 +295,8 @@
       }
     }
 
-    // will-change: height;
     height: 340px;
 
-    // @media (max-width: 1440px) {
-    //   width: 54.51vw;
-    // }
-
-    // @media (max-width: 840px) {
-    //   width: 100%;
-    // }
-    // @media (max-width: 767px) {
-    //   width: 100%;
-    //   max-width: 100%;
-    // }
     @media (max-width: 600px) {
       height: 80px;
 

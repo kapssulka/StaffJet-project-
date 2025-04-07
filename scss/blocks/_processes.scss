@@ -5,11 +5,6 @@
 
   margin-top: -177px;
 
-  // background-image: url("./../images/background/processes/processes-bg.png");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: 100% 100%;
-
   .processes__bg-img {
     position: absolute;
     z-index: -1;
@@ -44,7 +39,6 @@
     }
   }
   @media (max-width: 840px) {
-    // background-image: url("./../images/background/processes/processes-bg-tablet.png");
     margin: 0;
 
     padding: 234px 0 100px;
@@ -54,8 +48,6 @@
     }
   }
   @media (max-width: 600px) {
-    // background-image: url("./../images/background/processes/processes-bg-mobile.png");
-
     padding: 372px 0 80px;
     margin-top: -372px;
   }

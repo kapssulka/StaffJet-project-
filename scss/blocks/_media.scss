@@ -5,10 +5,6 @@
 
   margin-top: 226px;
 
-  // background-image: url("./../images/background/media/media-bg.png");
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: 100% 100%;
   background-color: $white-bg;
 
   .media__bg-img {
@@ -39,19 +35,16 @@
   // background
 
   @media (max-width: 1024px) {
-    // background-image: url("./../images/background/media/media-bg-1024.png");
     padding-top: 100px;
     margin: 0 0 200px;
     padding-bottom: 0;
   }
   @media (max-width: 840px) {
-    // background-image: url("./../images/background/media/media-bg-tablet.png");
     padding: 100px 0 100px;
 
     margin: 0;
   }
   @media (max-width: 767px) {
-    // background-image: url("./../images/background/media/media-bg-mobile.png");
     padding: 80px 0 80px;
   }
 
