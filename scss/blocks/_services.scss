@@ -1,6 +1,7 @@
 .services {
   &__inner-top {
     position: relative;
+    z-index: 2;
     padding: 100px 0 62px;
 
     .services__bg-top {
@@ -69,6 +70,7 @@
 
   &__inner-bottom {
     position: relative;
+    z-index: 5;
     margin-top: 137px;
 
     .services__bg-bottom {
@@ -130,6 +132,7 @@
 
   &__inner-cards {
     position: relative;
+    z-index: 5;
     display: flex;
     flex-direction: column;
 

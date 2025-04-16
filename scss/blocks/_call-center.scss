@@ -146,10 +146,17 @@
     #color-blue {
       color: $blue;
     }
-    #color-opacity {
-      opacity: 50%;
-    }
 
+    @media (max-width: 1024px) {
+      opacity: 1;
+      &:before {
+        display: none;
+      }
+
+      .color-opacity {
+        opacity: 0.5;
+      }
+    }
     @media (max-width: 840px) {
       font-size: 24px;
     }
