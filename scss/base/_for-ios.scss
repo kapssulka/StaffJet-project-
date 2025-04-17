@@ -96,4 +96,21 @@ body._ios {
       margin-top: 80px;
     }
   }
+
+  .animate-services-title-1,
+  .animate-services-title-2,
+  .animate-services-title-3 {
+    span {
+      opacity: 1;
+    }
+  }
+  .services {
+    .mobile-opacity {
+      opacity: 25%;
+    }
+
+    .mobile-blue-color {
+      color: $blue;
+    }
+  }
 }

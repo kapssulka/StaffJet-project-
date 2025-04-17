@@ -3096,8 +3096,8 @@ main {
   }
 }
 .team__inner {
-  -webkit-transform: translateY(93px);
-          transform: translateY(93px);
+  -webkit-transform: translateY(63px);
+          transform: translateY(63px);
 }
 @media (max-width: 1024px) {
   .team__inner {
@@ -3288,7 +3288,7 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  aspect-ratio: 1/1;
+  aspect-ratio: 2/1;
   padding: 40px;
 }
 .clients__grid-item:nth-child(1) {
@@ -3309,8 +3309,14 @@ main {
 .clients__grid-item:nth-child(5), .clients__grid-item:nth-child(6), .clients__grid-item:nth-child(7) {
   border-right: 1px solid rgba(30, 30, 30, 0.5);
 }
+@media (max-width: 1440px) {
+  .clients__grid-item {
+    aspect-ratio: 1.5/1;
+  }
+}
 @media (max-width: 1024px) {
   .clients__grid-item {
+    aspect-ratio: 1/1;
     padding: 25px;
   }
 }
@@ -3593,7 +3599,7 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 160px;
+  margin-top: 100px;
 }
 @media (max-width: 840px) {
   .contacts__content {
@@ -4695,4 +4701,15 @@ body._ios .about-us__cards {
   body._ios .about-us__cards {
     margin-top: 80px;
   }
+}
+body._ios .animate-services-title-1 span,
+body._ios .animate-services-title-2 span,
+body._ios .animate-services-title-3 span {
+  opacity: 1;
+}
+body._ios .services .mobile-opacity {
+  opacity: 25%;
+}
+body._ios .services .mobile-blue-color {
+  color: #3253ed;
 }

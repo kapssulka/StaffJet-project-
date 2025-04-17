@@ -78,7 +78,7 @@
     align-items: center;
     justify-content: center;
 
-    aspect-ratio: 1/1;
+    aspect-ratio: 2/1;
     padding: 40px;
 
     &:nth-child(1) {
@@ -103,7 +103,12 @@
       border-right: 1px solid rgba($color: $black, $alpha: 0.5);
     }
 
+    @media (max-width: 1440px) {
+      aspect-ratio: 1.5/1;
+    }
     @media (max-width: 1024px) {
+      aspect-ratio: 1/1;
+
       padding: 25px;
     }
     @media (max-width: 600px) {
