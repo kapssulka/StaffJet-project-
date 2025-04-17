@@ -160,18 +160,21 @@
 
     @media (max-width: 1630px) {
       top: 60%;
+      font-size: 100px;
     }
 
     @media (max-width: 1140px) {
       left: 27.5vw;
-      top: 395px;
+      // top: 395px;
+      top: 330px;
       transform: translate(0, 0);
     }
     @media (max-width: 1024px) {
-      top: 350px;
+      // top: 350px;
+      top: 320px;
     }
     @media (max-width: 840px) {
-      top: 300px;
+      top: 260px;
     }
 
     @media (max-width: 767px) {
@@ -183,7 +186,7 @@
 
     @media (max-width: 744px) {
       // top: calc(417px - 53px);
-      top: 280px;
+      // top: 280px;
     }
 
     @media (max-width: 600px) {
@@ -214,8 +217,10 @@
 
   background-color: #fff;
   width: 100%;
-  max-width: 537px;
-  height: 344px;
+  // max-width: 537px;
+  max-width: 480px;
+  // height: 344px;
+  height: 270px;
 
   @media (max-width: 1440px) {
     max-width: 460px;
@@ -235,10 +240,12 @@
   }
   &:nth-child(2) {
     align-self: end;
-    margin-top: -108px;
+    // margin-top: -108px;
+    margin-top: -80px;
   }
   &:nth-child(3) {
-    margin-top: 108px;
+    // margin-top: 108px;
+    margin-top: 80px;
 
     align-self: center;
   }
@@ -247,18 +254,18 @@
     &:nth-child(1) {
     }
     &:nth-child(2) {
-      margin-top: -130px;
+      // margin-top: -130px;
     }
     &:nth-child(3) {
-      margin-top: 130px;
+      // margin-top: 130px;
     }
   }
   @media (max-width: 1140px) {
     &:nth-child(2) {
-      margin-top: 200px;
+      margin-top: 130px;
     }
     &:nth-child(3) {
-      margin-top: 200px;
+      margin-top: 130px;
 
       align-self: start;
       margin-left: 15.7vw;

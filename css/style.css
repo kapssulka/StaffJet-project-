@@ -1533,24 +1533,25 @@ main {
 @media (max-width: 1630px) {
   .services__bg-text {
     top: 60%;
+    font-size: 100px;
   }
 }
 @media (max-width: 1140px) {
   .services__bg-text {
     left: 27.5vw;
-    top: 395px;
+    top: 330px;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
   }
 }
 @media (max-width: 1024px) {
   .services__bg-text {
-    top: 350px;
+    top: 320px;
   }
 }
 @media (max-width: 840px) {
   .services__bg-text {
-    top: 300px;
+    top: 260px;
   }
 }
 @media (max-width: 767px) {
@@ -1558,11 +1559,6 @@ main {
     left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-  }
-}
-@media (max-width: 744px) {
-  .services__bg-text {
-    top: 280px;
   }
 }
 @media (max-width: 600px) {
@@ -1595,8 +1591,8 @@ main {
   border-radius: 8px;
   background-color: #fff;
   width: 100%;
-  max-width: 537px;
-  height: 344px;
+  max-width: 480px;
+  height: 270px;
 }
 @media (max-width: 1440px) {
   .card-services {
@@ -1621,27 +1617,19 @@ main {
 .card-services:nth-child(2) {
   -ms-flex-item-align: end;
       align-self: end;
-  margin-top: -108px;
+  margin-top: -80px;
 }
 .card-services:nth-child(3) {
-  margin-top: 108px;
+  margin-top: 80px;
   -ms-flex-item-align: center;
       align-self: center;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1140px) {
   .card-services:nth-child(2) {
-    margin-top: -130px;
+    margin-top: 130px;
   }
   .card-services:nth-child(3) {
     margin-top: 130px;
-  }
-}
-@media (max-width: 1140px) {
-  .card-services:nth-child(2) {
-    margin-top: 200px;
-  }
-  .card-services:nth-child(3) {
-    margin-top: 200px;
     -ms-flex-item-align: start;
         align-self: start;
     margin-left: 15.7vw;
@@ -4155,7 +4143,7 @@ main {
 @media (max-width: 767px) {
   .preloader__inner {
     right: 40px;
-    bottom: 100px;
+    bottom: 130px;
   }
 }
 .preloader__text-current, .preloader__text-next {
