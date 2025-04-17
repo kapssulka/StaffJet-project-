@@ -158,25 +158,48 @@
 
     opacity: 0.2;
 
+    @media (max-width: 1630px) {
+      top: 60%;
+    }
+
     @media (max-width: 1140px) {
       left: 27.5vw;
       top: 395px;
       transform: translate(0, 0);
     }
+    @media (max-width: 1024px) {
+      top: 350px;
+    }
+    @media (max-width: 840px) {
+      top: 300px;
+    }
+
     @media (max-width: 767px) {
       left: 50%;
-      top: 417px;
+      // top: 417px;
 
       transform: translateX(-50%);
     }
 
     @media (max-width: 744px) {
-      top: calc(417px - 53px);
+      // top: calc(417px - 53px);
+      top: 280px;
     }
 
     @media (max-width: 600px) {
       font-size: 80px;
-      top: -83px;
+      // top: -83px;
+      top: -110px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .mobile-opacity {
+      opacity: 25%;
+    }
+
+    .mobile-blue-color {
+      color: $blue;
     }
   }
 }
@@ -192,7 +215,7 @@
   background-color: #fff;
   width: 100%;
   max-width: 537px;
-  height: 420px;
+  height: 344px;
 
   @media (max-width: 1440px) {
     max-width: 460px;
@@ -212,14 +235,24 @@
   }
   &:nth-child(2) {
     align-self: end;
-    margin-top: -130px;
+    margin-top: -108px;
   }
   &:nth-child(3) {
-    margin-top: 130px;
+    margin-top: 108px;
 
     align-self: center;
   }
 
+  @media (max-width: 1440px) {
+    &:nth-child(1) {
+    }
+    &:nth-child(2) {
+      margin-top: -130px;
+    }
+    &:nth-child(3) {
+      margin-top: 130px;
+    }
+  }
   @media (max-width: 1140px) {
     &:nth-child(2) {
       margin-top: 200px;
@@ -244,11 +277,11 @@
     }
     &:nth-child(2) {
       align-self: center;
-      margin-top: 80px;
+      margin-top: 30px;
       max-width: 100%;
     }
     &:nth-child(3) {
-      margin-top: 80px;
+      margin-top: 30px;
 
       align-self: center;
       max-width: 100%;
@@ -273,37 +306,39 @@
     letter-spacing: -2%;
   }
 
-  &._open &__button {
-    background-color: $black;
+  @media (min-width: 1025px) {
+    &._open &__button {
+      background-color: $black;
 
-    &:hover {
-      background-color: #353535;
-    }
+      &:hover {
+        background-color: #353535;
+      }
 
-    span {
-      &:before {
-        height: 0;
+      span {
+        &:before {
+          height: 0;
+        }
       }
     }
-  }
 
-  &._open &__title {
-    transform: translateY(100%);
-  }
+    &._open &__title {
+      transform: translateY(100%);
+    }
 
-  &._open &__title {
-    animation: openCardTitle 0.3s ease-in-out forwards;
-  }
-  &._close &__title {
-    animation: closeCardTitle 0.3s ease-in-out 0.3s backwards;
-  }
-  &._open &__text {
-    display: block;
+    &._open &__title {
+      animation: openCardTitle 0.3s ease-in-out forwards;
+    }
+    &._close &__title {
+      animation: closeCardTitle 0.3s ease-in-out 0.3s backwards;
+    }
+    &._open &__text {
+      display: block;
 
-    animation: openCardText 0.3s ease-in-out 0.3s forwards;
-  }
-  &._close &__text {
-    animation: closeCardText 0.3s ease-in-out backwards;
+      animation: openCardText 0.3s ease-in-out 0.3s forwards;
+    }
+    &._close &__text {
+      animation: closeCardText 0.3s ease-in-out backwards;
+    }
   }
 
   &__button {
@@ -350,12 +385,21 @@
         transition: all 0.2s ease-in-out;
       }
     }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 
   &__text-block {
     position: relative;
     overflow: hidden;
     padding-top: 100px;
+
+    @media (max-width: 1024px) {
+      overflow: visible;
+      padding-top: 0;
+    }
   }
 
   &__title {
@@ -363,6 +407,10 @@
     font-size: 32px;
     line-height: 110.00000000000001%;
     letter-spacing: -2%;
+
+    @media (max-width: 1024px) {
+      margin-bottom: 20px;
+    }
 
     @media (max-width: 744px) {
       font-size: 28px;
@@ -379,6 +427,10 @@
     font-size: 20px;
     line-height: 130%;
     letter-spacing: -1.5%;
+
+    @media (max-width: 1024px) {
+      position: static;
+    }
 
     @media (max-width: 600px) {
       font-size: 16px;

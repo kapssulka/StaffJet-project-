@@ -6,15 +6,15 @@
   transform: translateY(50px);
 }
 
-.animate-services-title-1,
-.animate-services-title-2,
-.animate-services-title-3 {
-  span {
-    opacity: 0.25;
-  }
-}
-
 @media (min-width: 1021px) {
+  .animate-services-title-1,
+  .animate-services-title-2,
+  .animate-services-title-3 {
+    span {
+      opacity: 0.25;
+    }
+  }
+
   .animate-cpa-data-card-1,
   .animate-cpa-data-card-2,
   .animate-cpa-data-card-3,
