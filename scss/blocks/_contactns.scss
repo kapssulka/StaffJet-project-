@@ -349,6 +349,11 @@
     max-width: 410px;
 
     margin-left: 14px;
+
+    a {
+      text-decoration: underline;
+      font-weight: 600;
+    }
   }
 
   &__input:checked + &__box {

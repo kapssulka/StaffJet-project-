@@ -3863,6 +3863,10 @@ main {
   max-width: 410px;
   margin-left: 14px;
 }
+.custom-checkbox__text a {
+  text-decoration: underline;
+  font-weight: 600;
+}
 .custom-checkbox__input:checked + .custom-checkbox__box {
   border: none;
 }
